@@ -75,7 +75,8 @@ A paragraph or bulleted list describing how the player will interact with the ga
 - At least one map 
     - The path the enemies take is static according to pre-made maps.  
     - There will be fixed locations where you can place towers.  
-- A variety of towers 
+- A variety of towers
+    - hitscan attacks
     - Medieval fantasy themes such as archer tower, cannon, wizard tower, etc. 
     - Each tower will have different damage capabilities and costs, requiring strategic thinking on the part of the player as to how best allocate their resources. 
     - The player will have the ability to place towers in different locations and of different types. 
