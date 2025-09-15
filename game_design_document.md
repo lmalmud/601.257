@@ -30,9 +30,7 @@ Rogue Tower is a roguelike tower defense game, where the map is expanded procedu
 
 ### Love Death and Robots: Suits 
 
-[https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.jamesatilano.com%2Flove-death-and-robots-suits&psig=AOvVaw0e4gLJSZwiTwtq3961F9Eo&ust=1757981689771000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCKCmyqK-2Y8DFQAAAAAdAAAAABAE](Suits)  
-
-is an episode from the Netflix show Love Death and Robots, where a group of farmers have mech suits that they pilot to defend their land from alien invaders. The subject matter of our game was inspired by this episode of the show! 
+Suits is an episode from the Netflix show Love Death and Robots, where a group of farmers have mech suits that they pilot to defend their land from alien invaders. The subject matter of our game was inspired by this episode of the show! 
 
 ![Love, Death, and Robots Image](https://images.squarespace-cdn.com/content/v1/5b3cee29697a98bbfb322033/1602565009284-23POBIW9CNGPXZTBS53B/2020-10-10_11h39_37.png?format=1500w) 
 
@@ -44,18 +42,14 @@ We really liked the art style of this game, and how bold the colors are. It’s 
 
 ![thronefall image2](GameDesignDocScreenshots/thronefall2.png) 
 
- 
 
 ### Bad North 
 
 Another game that we like the art style of. Both Bad North and Thronefall have low-poly art styles and nice, soft lighting. The designs are very simplistic, but effective. 
 
- 
-
 ![bad north image1](GameDesignDocScreenshots/badnorth1.png) 
 
 ![bad north image2](GameDesignDocScreenshots/badnorth2.png) 
-
  
 
 ### Minecraft 
@@ -64,67 +58,42 @@ One of our favorite parts of Minecraft was the farming- providing a peaceful, ro
 
 ![Minecraft Farming Image](https://images.surferseo.art/4d7c9bab-c8e4-427a-8b2f-b9d3147e24aa.png) 
 
- 
 
 ### Plants vs. Zombies 
 
 We’re taking inspiration from the sun and sunflowers mechanic. We plan to have plants that generate income (your farm), and the monsters will first destroy those plans, causing you to lose income. However, you can lose those plants and it won’t be game over yet (much like how you can lose your sunflowers in PvZ without a game over). However, if you let your plants get eaten, you lose out on income.  
 
- 
 
 ## Gameplay 
 
 A paragraph or bulleted list describing how the player will interact with the game, and the key gameplay mechanics that you plan to have implemented in your finalized game. Also use this section to broadly describe the expected user interface and game-controls. 
 
 **Core mechanics required:** 
-
-Day-night cycle 
-
-During the daytime, the player is free from attacking enemies. They can plant crops and build/upgrade towers. 
-
-During the nighttime, the enemies come along a set path. Your defenses must hold in order to protect your crops and the farmhouse where your family is sleeping (you can lose your planters but each enemy that gets to the farmhouse removes one of your lives) 
-
-At least one map 
-
-The path the enemies take is static according to pre-made maps.  
-
-There will be fixed locations where you can place towers.  
-
-A variety of towers 
-
-Medieval fantasy themes such as archer tower, cannon, wizard tower, etc. 
-
-Each tower will have different damage capabilities and costs, requiring strategic thinking on the part of the player as to how best allocate their resources. 
-
-The player will have the ability to place towers in different locations and of different types. 
-
-Farming mechanic 
-
-There are set planters and you decide what crop goes in them  
-
-crops give money after x cycles 
-
-Longer = more money but more of an investment 
-
-Plants automatically replant themselves, the player just decides what goes in them 
+- Day-night cycle 
+    - During the daytime, the player is free from attacking enemies. They can plant crops and build/upgrade towers. 
+    - During the nighttime, the enemies come along a set path. Your defenses must hold in order to protect your crops and the farmhouse where your family is sleeping (you can lose your planters but each enemy that gets to the farmhouse removes one of your lives) 
+- At least one map 
+    - The path the enemies take is static according to pre-made maps.  
+    - There will be fixed locations where you can place towers.  
+- A variety of towers 
+    - Medieval fantasy themes such as archer tower, cannon, wizard tower, etc. 
+    - Each tower will have different damage capabilities and costs, requiring strategic thinking on the part of the player as to how best allocate their resources. 
+    - The player will have the ability to place towers in different locations and of different types. 
+- Farming mechanic 
+    - There are set planters and you decide what crop goes in them  
+    - crops give money after $$x$$ cycles 
+    - Longer = more money but more of an investment 
+    - Plants automatically replant themselves, the player just decides what goes in them 
 
 **Nice to have goals:** 
-
-Environment based effects on the towers, meaning placement matters.  
-
-Ex. Higher = more range 
-
-The enemies target the planters 
-
-Not buying enough defense directly impacts your eco. 
-
-Variety in maps 
-
-Either you get a random map or the user selects one.  
-
-The player has an attack 
-
-Allows for strategies where you invest more in eco at the beginning and use your skill attacking the enemies to avoid buying towers until necessary 
+- Environment based effects on the towers, meaning placement matters.
+    - Ex. Higher = more range 
+    - The enemies target the planters 
+    - Not buying enough defense directly impacts your eco. 
+- Variety in maps 
+    - Either you get a random map or the user selects one.  
+- The player has an attack 
+    - Allows for strategies where you invest more in eco at the beginning and use your skill attacking the enemies to avoid buying towers until necessary 
 
 ## Development Plan 
 
@@ -135,11 +104,7 @@ We first intend to implement the tower defense aspect of our game, layering on t
 Our goals for the first checkpoint will include: 
 
 Implement basic map functionality such as 
-
-A pre-generated map that will serve as the basis for the physical structure of gameplay using primitives 
-
-Get an “enemy” to follow a preset path 
-
-A player that can move around the world 
-
-The ability to place primitive towers (not necessarily functional). Ex able to place a cube in the world.
+- A pre-generated map that will serve as the basis for the physical structure of gameplay using primitives 
+    - Get an “enemy” to follow a preset path 
+- A player that can move around the world 
+- The ability to place primitive towers (not necessarily functional). Ex able to place a cube in the world.
