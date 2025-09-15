@@ -47,9 +47,9 @@ We really liked the art style of this game, and how bold the colors are. It’s 
 
 Another game that we like the art style of. Both Bad North and Thronefall have low-poly art styles and nice, soft lighting. The designs are very simplistic, but effective. 
 
-![bad north image1](GameDesignDocScreenshots/badnorth1.png) 
+![bad north image1](GameDesignDocScreenshots/badNorth1.png) 
 
-![bad north image2](GameDesignDocScreenshots/badnorth2.png) 
+![bad north image2](GameDesignDocScreenshots/badNorth2.png) 
  
 
 ### Minecraft 
