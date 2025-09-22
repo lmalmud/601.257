@@ -84,7 +84,13 @@ A paragraph or bulleted list describing how the player will interact with the ga
     - There are set planters and you decide what crop goes in them  
     - crops give money after $$x$$ cycles 
     - Longer = more money but more of an investment 
-    - Plants automatically replant themselves, the player just decides what goes in them 
+    - Plants automatically replant themselves, the player just decides what goes in them
+- Enemies
+    - Enemies follow a pre-set pathway through the map clearly marked as a road for the player
+    - A set of enemy types that vary in health, speed, etc.
+      - slow but tanky
+      - fast but weak
+
 
 **Nice to have goals:** 
 - Environment based effects on the towers, meaning placement matters.
