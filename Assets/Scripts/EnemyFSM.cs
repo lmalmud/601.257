@@ -9,10 +9,11 @@ public class EnemyFSM : MonoBehaviour
 
     public EnemyState currState;
     [SerializeField] private float enemyAttackDistance = 2f;
-    [SerializeField] private Transform baseTnfm; //remember to set this in editor!
+    [SerializeField] private Transform baseTnfm;
     private NavMeshAgent agent;
 
     void Awake() {
+        baseTnfm = GameObject.Find("House").transform;
         agent = GetComponentInParent<NavMeshAgent>();
     }
    
