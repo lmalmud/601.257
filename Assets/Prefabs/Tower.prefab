@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
     type: 3}
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 411562358350962766}
   sightSensor: {fileID: 4421059900784383281}
 --- !u!1 &3230708852071872605
 GameObject:
