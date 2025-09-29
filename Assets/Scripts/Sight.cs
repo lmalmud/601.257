@@ -19,6 +19,7 @@ public class Sight : MonoBehaviour
 
         detectedObject = null;
 
+        print(colliders.Length);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -27,20 +28,27 @@ public class Sight : MonoBehaviour
             Vector3 directionToController = Vector3.Normalize(collider.bounds.center - transform.position);
 
             float angleToCollider = Vector3.Angle(transform.forward, directionToController);
+            
 
             if (angleToCollider < angle)
             {
+                
+                // if the line does *not* hit an obstacle
                 if (!Physics.Linecast(transform.position, collider.bounds.center, out RaycastHit hit, obstaclesLayers))
                 {
-                    Debug.DrawLine(transform.position, collider.bounds.center, Color.green);
+
+                    //Debug.DrawLine(transform.position, collider.bounds.center, Color.green);
                     detectedObject = collider;
                     break;
                 }
+
+                // if the line hits an obstacle, draw a line to it
                 else
                 {
                     Debug.DrawLine(transform.position, hit.point, Color.red);
                 }
             }
+
         }
     }
 

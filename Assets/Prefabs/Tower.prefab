@@ -157,6 +157,7 @@ MonoBehaviour:
     type: 3}
   shootPoint: {fileID: 411562358350962766}
   sightSensor: {fileID: 4421059900784383281}
+  shootRate: 10
 --- !u!1 &3230708852071872605
 GameObject:
   m_ObjectHideFlags: 0
