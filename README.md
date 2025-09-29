@@ -65,9 +65,6 @@ We’re taking inspiration from the sun and sunflowers mechanic. We plan to have
 
 
 ## Gameplay 
-
-A paragraph or bulleted list describing how the player will interact with the game, and the key gameplay mechanics that you plan to have implemented in your finalized game. Also use this section to broadly describe the expected user interface and game-controls. 
-
 **Core mechanics required:** 
 - Day-night cycle 
     - During the daytime, the player is free from attacking enemies. They can plant crops and build/upgrade towers. 
@@ -110,8 +107,10 @@ We first intend to implement the tower defense aspect of our game, layering on t
 
 Our goals for the first checkpoint will include: 
 
-Implement basic map functionality such as 
-- A pre-generated map that will serve as the basis for the physical structure of gameplay using primitives 
+- Implement basic map functionality such as a pre-generated map that will serve as the basis for the physical structure of gameplay using primitives 
     - Get an “enemy” to follow a preset path 
 - A player that can move around the world 
-- The ability to place primitive towers (not necessarily functional). Ex able to place a cube in the world.
+- The ability to place primitive towers (not necessarily functional)
+    - Ex able to place a cube in the world.
+- At least one enemy
+- A win/lose condition
