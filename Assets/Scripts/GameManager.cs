@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class GameManager : MonoBehaviour
     //surely nothing bad will happen to my family
     
     public List<WaveSpawner> waves;
+    public List<Enemy> enemies;
     public static GameManager instance;
     public UnityEvent onChanged;
-    public UnityEvent onDeath;
+    //public UnityEvent onDeath;
 
     void Awake()
     {
@@ -35,8 +37,35 @@ public class GameManager : MonoBehaviour
     {
         if (life <= 0)
         {
-            onDeath.Invoke(); //sends out the onDeath event message
-            Destroy(gameObject);
+            //onDeath.Invoke(); //sends out the onDeath event message
+            //Destroy(gameObject);
+            SceneManager.LoadScene("LoseScene");
+        }
+    }
+
+    public void addWave(WaveSpawner wave)
+    {
+        waves.Add(wave);
+    }
+    public void removeWave(WaveSpawner wave)
+    {
+        waves.Remove(wave);
+        checkWinCondition();
+    }
+    public void addEnemy(Enemy enemy)
+    {
+        enemies.Add(enemy);
+    }
+    public void removeEnemy(Enemy enemy)
+    {
+        enemies.Remove(enemy);
+        checkWinCondition();
+    }
+
+    private void checkWinCondition()
+    {
+        if (enemies.Count <= 0 && waves.Count <= 0) {
+            SceneManager.LoadScene("WinScene");
         }
     }
 

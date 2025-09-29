@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.waves.Add(this);
+        GameManager.instance.addWave(this);
         InvokeRepeating("Spawn", startTime, spawnRate);
         Invoke("EndSpawner", endTime);
     }
@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
 
     void EndSpawner()
     {
-        GameManager.instance.waves.Remove(this);
+        GameManager.instance.removeWave(this);
         CancelInvoke();
     }
 }
