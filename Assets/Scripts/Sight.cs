@@ -19,8 +19,6 @@ public class Sight : MonoBehaviour
 
         detectedObject = null;
 
-        print(colliders.Length);
-
         for (int i = 0; i < colliders.Length; i++)
         {
             Collider collider = colliders[i];
