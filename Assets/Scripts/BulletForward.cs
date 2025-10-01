@@ -20,4 +20,5 @@ public class BulletForward : MonoBehaviour
         // move it forwards
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
+
 }

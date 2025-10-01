@@ -183,10 +183,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!195 &1514266549043327225
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -221,5 +221,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727702ebc731cbe418aa6f45db85803f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2822752940786420828, guid: e52fe3104ad9cff41a8b47b7e5135b83,
+  bulletPrefab: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
     type: 3}

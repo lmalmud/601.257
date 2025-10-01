@@ -157,7 +157,7 @@ MonoBehaviour:
     type: 3}
   shootPoint: {fileID: 411562358350962766}
   sightSensor: {fileID: 4421059900784383281}
-  shootRate: 10
+  shootRate: 1
 --- !u!1 &3230708852071872605
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,11 +203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectedObject: {fileID: 0}
-  distance: 0
-  angle: 0
+  distance: 6
+  angle: 360
   objectsLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   obstaclesLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1

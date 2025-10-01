@@ -13,16 +13,18 @@ public class Enemy : MonoBehaviour
         GameManager.instance.addEnemy(this);
     }
 
-    void onTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //check the collision is from a player bullet
+        Debug.Log("trigger entered");
         if (other.gameObject.layer == bulletPrefab.layer)
         {
+            Debug.Log("bullet!!");
             Destroy(gameObject);
         }
     }
 
-    void OnDestroy()
+    void OnDestroy() //later dont do this on destory make some event
     {
         GameManager.instance.removeEnemy(this);
     }

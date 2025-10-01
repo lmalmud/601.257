@@ -21,7 +21,7 @@ public class TowerInteract : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, distance, objectsLayer);
         detectedObject = null;
-        Debug.Log(colliders.Length);
+        //Debug.Log(colliders.Length);
         for (int i = 0; i < colliders.Length; i++)
         {
             Collider currCollider = colliders[i];

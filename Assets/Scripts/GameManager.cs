@@ -64,7 +64,13 @@ public class GameManager : MonoBehaviour
 
     private void checkWinCondition()
     {
-        if (enemies.Count <= 0 && waves.Count <= 0) {
+
+        if (life <= 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+        else if (enemies.Count <= 0 && waves.Count <= 0)
+        {
             SceneManager.LoadScene("WinScene");
         }
     }
@@ -76,6 +82,12 @@ public class GameManager : MonoBehaviour
     public void loseLife()
     {
         life--;
+        // if (life <= 0)
+        // {
+        //     //onDeath.Invoke(); //sends out the onDeath event message
+        //     //Destroy(gameObject);
+        //     SceneManager.LoadScene("LoseScene");
+        // }
     }
 
     public int getMoney()
@@ -90,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        var endPointDetector = GetComponent<EndPointDetection>();
-        endPointDetector.onReachEnd.RemoveListener(loseLife);
+        //var endPointDetector = GetComponent<EndPointDetection>();
+        //endPointDetector.onReachEnd.RemoveListener(loseLife);
     }
 }

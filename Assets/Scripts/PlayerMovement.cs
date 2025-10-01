@@ -75,13 +75,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (axes == RotationAxes.MouseX)
         {
-            Debug.Log("2");
+            //Debug.Log("2");
             // transform.Rotate(0, value.Get<Vector2>().x * sensitivityX, 0);
             rotateDir = new Vector2(0, value.Get<Vector2>().x * sensitivityX);
         }
         else
         {
-            Debug.Log("3");
+            //Debug.Log("3");
             rotationY += value.Get<Vector2>().y * sensitivityY;
             rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
             rotateDir = new Vector2(-rotationY, playerEye.transform.localEulerAngles.y);
@@ -93,10 +93,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        Debug.Log("jumped");
+        //Debug.Log("jumped");
         if (isGrounded)
         {
-            Debug.Log("impulse applied");
+            //Debug.Log("impulse applied");
             playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }
     }
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = CheckIsGrounded();
-        Debug.Log(CheckIsGrounded());
+        //Debug.Log(CheckIsGrounded());
         // rb.transform.Translate(movementDir * (moveSpeed * Time.deltaTime), Space.World);
     }
 
