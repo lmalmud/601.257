@@ -117,6 +117,7 @@ Our goals for the first checkpoint will include:
 
 ## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 - Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]
+- Implement better target selection for towers
 - A second level
     - Pathfinding system improvements so that paths may loop around on themselves [TS]
 - Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain
@@ -124,7 +125,8 @@ Our goals for the first checkpoint will include:
     - Enhanced tower prefab (& one variant, if time
     - Enhanced enemy prefab (& one variant, if time)
 - Text on the win/lose screen
-- Add day/night loop with lighting
+- Add day/night loop with lighting 
+  - Add multiple rounds to each level
 
 ## Development
 ### Project 1-2 Checkpoint
