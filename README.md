@@ -114,3 +114,23 @@ Our goals for the first checkpoint will include:
     - Ex able to place a cube in the world.
 - At least one enemy
 - A win/lose condition
+
+## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+- Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]
+- A second level
+    - Pathfinding system improvements so that paths may loop around on themselves [TS]
+- Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain
+- More complex models than just a capsule
+    - Enhanced tower prefab (& one variant, if time
+    - Enhanced enemy prefab (& one variant, if time)
+- Text on the win/lose screen
+- Add day/night loop with lighting
+
+## Development
+### Project 1-2 Checkpoint
+* You can see the available progress in the scene called ``Level1```
+* Use WASD to move, space to jump, and the mouse to look around
+* Press ```e``` to place a tower near a pedestal
+* The win condition is when all of the enemies are killed and you still have life (you will see a hot green screen)
+* The lose condition is if five enemies make it to the end of the path (don't place any towers to see the lose condition in action and you will see a red screen)
+* At this stage, we have passive income in the form of an initial money allocation.
