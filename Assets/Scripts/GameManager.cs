@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public List<Enemy> enemies;
     public static GameManager instance;
     public UnityEvent onChanged;
+
+    public Light sun;
+
+    private bool day;
     //public UnityEvent onDeath;
 
     void Awake()
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
             //onDeath.Invoke(); //sends out the onDeath event message
             //Destroy(gameObject);
             SceneManager.LoadScene("LoseScene");
+            
         }
     }
 

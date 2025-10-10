@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bottom;
     
     
-    
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
     public float sensitivityX = 15F;
@@ -46,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         movementDir = value.Get<Vector2>().normalized;
         scaledMovement = movementDir * (moveSpeed);
     }
+
+    
     
     public void OnLook(InputValue value){
         // lookDir = value.Get<Vector2>();
@@ -111,6 +112,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = CheckIsGrounded();
+        
+        
+        //Physics.Raycast(wandEndPoint.transform.position, gaze,  out RaycastHit hit, 10);
+        
         //Debug.Log(CheckIsGrounded());
         // rb.transform.Translate(movementDir * (moveSpeed * Time.deltaTime), Space.World);
     }
@@ -130,5 +135,10 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         // return true;
+    }
+
+    void OnDrawGizmos()
+    {
+        
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7369234159797936017}
   - component: {fileID: 2823371293251645331}
   - component: {fileID: 4319928621083421257}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tempTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
