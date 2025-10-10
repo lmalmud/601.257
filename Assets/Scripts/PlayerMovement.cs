@@ -69,9 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
             rotationY += value.Get<Vector2>().y * sensitivityY;
             rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-            rotateDir = new Vector2(-rotationY, rotationX);
+            // rotateDir = new Vector2(-rotationY, rotationX);
             // Debug.Log(rotateDir);
+            
+            //side-to-side rotations move entire body
             transform.localEulerAngles = new Vector3(0, rotationX, 0);
+            //up and down rotation just moves "eyes" -> camera
             playerEye.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
         }
         else if (axes == RotationAxes.MouseX)
