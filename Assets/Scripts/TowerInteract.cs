@@ -40,15 +40,30 @@ public class TowerInteract : MonoBehaviour
 
     void OnBuildMode()
     {
-        towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+        if (towerPreview == null)
+        {
+            towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+            setOpacity(towerPreview, .5f);
+        }
+        
+        
+    }
+
+    void setOpacity(GameObject item, float opacity)
+    {
+        Color itemColor = item.GetComponent<Renderer>().material.color;
+        itemColor.a = opacity;
+        item.GetComponent<Renderer>().material.color = itemColor;
     }
     
     
     
     void OnPlace()
     {
-        
+        if (towerPreview == null) return;
+        setOpacity(towerPreview, 1);
         towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+        setOpacity(towerPreview, .5f);
 
         // return;
         // Collider[] colliders = Physics.OverlapSphere(transform.position, distance, objectsLayer);
