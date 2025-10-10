@@ -107,13 +107,13 @@ We first intend to implement the tower defense aspect of our game, layering on t
 
 Our goals for the first checkpoint will include: 
 
-- Implement basic map functionality such as a pre-generated map that will serve as the basis for the physical structure of gameplay using primitives 
-    - Get an “enemy” to follow a preset path 
-- A player that can move around the world 
-- The ability to place primitive towers (not necessarily functional)
-    - Ex able to place a cube in the world.
-- At least one enemy
-- A win/lose condition
+- ~~Implement basic map functionality such as a pre-generated map that will serve as the basis for the physical structure of gameplay using primitives~~
+    - ~~Get an “enemy” to follow a preset path~~
+- ~~A player that can move around the world~~ 
+- ~~The ability to place primitive towers (not necessarily functional)~~
+    - ~~Ex able to place a cube in the world.~~
+- ~~At least one enemy~~
+- ~~A win/lose condition~~
 
 ## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 - Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]
@@ -122,7 +122,7 @@ Our goals for the first checkpoint will include:
     - Pathfinding system improvements so that paths may loop around on themselves [TS]
 - Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain
 - More complex models than just a capsule
-    - Enhanced tower prefab (& one variant, if time
+    - Enhanced tower prefab (& one variant, if time)
     - Enhanced enemy prefab (& one variant, if time)
 - Text on the win/lose screen
 - Add day/night loop with lighting 
