@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Lucy Malmud
+    Date Created: 10/1/25
+    Date Last Updated: 10/1/25
+    Summary: Detects an object that is in the objectsLayer, ignoring entities in the obstaclesLayer.
+*/
+
 public class Sight : MonoBehaviour
 {
     public Collider detectedObject; // the list of objects that are in sight
@@ -26,11 +33,11 @@ public class Sight : MonoBehaviour
             Vector3 directionToController = Vector3.Normalize(collider.bounds.center - transform.position);
 
             float angleToCollider = Vector3.Angle(transform.forward, directionToController);
-            
+
 
             if (angleToCollider < angle)
             {
-                
+
                 // if the line does *not* hit an obstacle
                 if (!Physics.Linecast(transform.position, collider.bounds.center, out RaycastHit hit, obstaclesLayers))
                 {
