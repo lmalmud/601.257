@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Lucy Malmud
+    Date Created: 10/1/25
+    Date Last Updated: 10/10/25
+    Summary: Tower attack mechanism- tower identifies closest enemy, aims, and shoots.
+*/
+
 public class TowerAttack : MonoBehaviour
 {
 
@@ -11,7 +18,7 @@ public class TowerAttack : MonoBehaviour
     public float shootRate; // how frequently this tower can shoot - measured in bullets/second
     private float lastFired; // the last time that a bullet was fired
 
-    // Update is called once per frame
+
     void Update()
     {
         // reference for auto-shooting: https://discussions.unity.com/t/automatic-shooting-script/112483
@@ -41,6 +48,6 @@ public class TowerAttack : MonoBehaviour
 
             lastFired = Time.time; // update the time that was last fired to be right now
         }
-        
+
     }
 }
