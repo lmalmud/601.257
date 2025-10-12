@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/OverlayStyle.uss?fileID=7433441132597879392&amp;guid=77ed507527f9cad3f90a4451abb2ae69&amp;type=3#OverlayStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:Label text="Label" name="Lives" class="information" style="-unity-text-align: upper-left; width: auto; translate: 0 0;" />
+        <ui:Label text="Balance: " name="Balance" class="information" style="width: auto;" />
+        <ui:IntegerField label="Integer Field" value="42" name="Balance" class="information" />
+    </ui:VisualElement>
+</ui:UXML>

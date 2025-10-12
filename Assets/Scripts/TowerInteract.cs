@@ -12,9 +12,12 @@ public class TowerInteract : MonoBehaviour
     private Camera mainCam;
     public GameObject towerPrefab;
 
-    public Vector3 targetPos;
+    public Vector3 lookLocation;
+    public Vector3 targetPlaceLocation;
     public GameObject wandEndPoint;
     private GameObject towerPreview;
+    public PlayerStateController playerState;
+    private float towerYoffset;
     
     
     // Start is called before the first frame update
@@ -28,23 +31,60 @@ public class TowerInteract : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(wandEndPoint.transform.position, gaze, out hitInfo, distance, terrainLayer))
         {
-            targetPos = hitInfo.point;
+            lookLocation = hitInfo.point;
         }
         else
         {
-            targetPos = wandEndPoint.transform.position + distance * gaze;
+            lookLocation = wandEndPoint.transform.position + distance * gaze;
         }
         // Gizmos.color = Color.magenta;
         // Gizmos.DrawRay(wandEndPoint.transform.position, gaze*10);
     }
 
+    //precondition: towerPrefab is set to the tower type that wants to be displayed/placed
+    void getBuildLocation()
+    {
+        getLookLocation();
+        Bounds towerBounds = towerPrefab.GetComponent<MeshRenderer>().bounds;
+        towerYoffset = towerBounds.extents.y;
+        targetPlaceLocation = lookLocation;
+        targetPlaceLocation.y += towerYoffset;
+        // Vector3 towerPlaceTarget = lookLocation;
+        // Debug.Log("pre: " + towerPlaceTarget);
+        // towerPlaceTarget.y += towerYoffset;
+        // Debug.Log("post: " + towerPlaceTarget.y);
+    }
+
+
+    void OnViewMode()
+    {
+        if (playerState.getState() == PlayerStateController.PlayerState.BuildMode)
+        {
+            Destroy(towerPreview);
+            playerState.setState(PlayerStateController.PlayerState.ViewMode);
+        }
+    }
+
     void OnBuildMode()
     {
-        if (towerPreview == null)
+        if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
-            towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+            
+            towerPreview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
+            // Bounds towerBounds = towerPreview.GetComponent<MeshRenderer>().bounds;
+            // towerYoffset = towerBounds.extents.y;
+            // Vector3 currPos = towerPreview.transform.position;
+            // currPos.y += towerYoffset;
+            // towerPreview.transform.position = currPos;
             setOpacity(towerPreview, .5f);
+            playerState.setState(PlayerStateController.PlayerState.BuildMode);
+            
         }
+        // if (towerPreview == null)
+        // {
+        //     towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+        //     setOpacity(towerPreview, .5f);
+        // }
         
         
     }
@@ -62,7 +102,7 @@ public class TowerInteract : MonoBehaviour
     {
         if (towerPreview == null) return;
         setOpacity(towerPreview, 1);
-        towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
+        towerPreview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
         setOpacity(towerPreview, .5f);
 
         // return;
@@ -102,10 +142,11 @@ public class TowerInteract : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        getLookLocation();
+        getBuildLocation();
+        
         if (towerPreview != null)
         {
-            towerPreview.transform.position = targetPos;
+            towerPreview.transform.position = targetPlaceLocation;
         }
         
     }
@@ -122,3 +163,4 @@ public class TowerInteract : MonoBehaviour
         Gizmos.DrawRay(transform.position, leftDirection*distance);
     }
 }
+

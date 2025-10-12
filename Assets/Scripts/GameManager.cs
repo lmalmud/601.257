@@ -29,8 +29,17 @@ public class GameManager : MonoBehaviour
 
     public Light sun;
 
-    private bool day;
+    private bool isDay;
+
+    //length of a day in seconds
+    public float dayLength = 60;
+    //how many times per second the sun's position is updated
+    private const float SunRotateTicksPerSecond = 4;
+    //how much the sun is rotated each 'sun tick' in degrees
+    public float sunRotatefraction;
     //public UnityEvent onDeath;
+    
+    public AudioController audioController;
 
     void Awake()
     {
@@ -43,10 +52,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Duplicated WavesManager, ignoring this one", gameObject);
         }
+        
+        sunRotatefraction = 180 / (dayLength * SunRotateTicksPerSecond) ;
+
+
 
         //gets a reference to teh endpoint detector and listens out for the onReachEnd event
         var endPointDetector = GameObject.Find("EndPoint").GetComponent<EndPointDetection>();
         endPointDetector.onReachEnd.AddListener(loseLife);
+        InvokeRepeating("rotateSun", 0, 1/SunRotateTicksPerSecond);
+        InvokeRepeating("toggleDayNight", 0, dayLength);
     }
 
     void Update()
@@ -92,6 +107,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void rotateSun()
+    {
+        sun.transform.Rotate(new Vector3(sunRotatefraction, 0, 0));
+    }
+
+    private void toggleDayNight()
+    {
+        isDay = !isDay;
+        if (isDay)
+        {
+            audioController.startDay();
+        }
+        else
+        {
+            audioController.startNight();
+        }
+        // Debug.Log(isDay);
+    }
+
     public int getLife()
     {
         return life;
@@ -115,6 +149,13 @@ public class GameManager : MonoBehaviour
     public void changeMoney(int m)
     {
         money += m;
+    }
+
+    public bool spendMoney(int cost)
+    {
+        if (cost > money) return false;
+        money -= cost;
+        return true;
     }
 
     void OnDestroy()

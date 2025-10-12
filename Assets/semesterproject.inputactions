@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ViewMode",
+                    "type": "Button",
+                    "id": "84754b7b-d5e2-4a07-b15a-2e11967ea9b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "BuildMode",
                     "type": "Button",
                     "id": "94a6dd32-ff54-4346-9ccf-94859dcd73b3",
@@ -295,7 +304,7 @@
                 {
                     "name": "",
                     "id": "5eae6c69-6535-4022-88bf-137a0ccbbd58",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -311,6 +320,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "BuildMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bda494b0-6fa4-469c-a488-06f6f387d358",
+                    "path": "<Keyboard>/#(1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ViewMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
