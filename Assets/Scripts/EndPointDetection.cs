@@ -9,13 +9,15 @@ public class EndPointDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //edited collision matrix so this should only care about enemies
-        //print("oh no!");
-
         //for now will have enemies disappear and lose one life once the endpoint is reached
-        onReachEnd.Invoke();
+        if (this.gameObject.tag == "EndPoint")
+        {
+            onReachEnd.Invoke();
 
-        Destroy(other.gameObject);
+            Destroy(other.gameObject);
+        }
+
+        
     }
 
 }

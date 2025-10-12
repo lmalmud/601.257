@@ -18,12 +18,23 @@ public class EnemyFSM : MonoBehaviour
     [Header("Enemy FSM parameters")]
     [SerializeField] private float enemyAttackDistance = 2f;
     [SerializeField] private Transform baseTnfm;
+    [SerializeField] private WaveSpawner mySpawner; //the wave spawner that spawned this enemy in
+    [SerializeField] private int checkpointIndex = -1; //index in checkpoint array this enemy just passed
+    //starts at negative one so updateCheckpoint() can be used in awake
+    [SerializeField] private Transform nextCheckpoint; //the checkpoint this enemy should be headed towards
+
     private NavMeshAgent agent;
 
     void Awake()
     {
         baseTnfm = GameObject.Find("House").transform;
+
         agent = GetComponentInParent<NavMeshAgent>();
+    }
+    
+    void Start()
+    {
+        updateCheckpoint(); //sets nextCheckpoint to the first checkpoint and checkpointIndex to 0
     }
 
     void Update()
@@ -43,11 +54,11 @@ public class EnemyFSM : MonoBehaviour
     {
 
         agent.isStopped = false;
-        agent.SetDestination(baseTnfm.position);
+        agent.SetDestination(nextCheckpoint.position);
 
-        float distToHouse = Vector3.Distance(transform.position, baseTnfm.position);
+        float distToCheckpoint = Vector3.Distance(transform.position, baseTnfm.position);
 
-        if (distToHouse < enemyAttackDistance)
+        if (distToCheckpoint < enemyAttackDistance)
         {
             currState = EnemyState.AttackHouse;
         }
@@ -56,5 +67,26 @@ public class EnemyFSM : MonoBehaviour
     void AttackHouse()
     {
         agent.isStopped = true;
+    }
+
+    public void setSpawner(WaveSpawner s)
+    {
+        mySpawner = s;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Checkpoint")
+        {
+            updateCheckpoint();
+        }
+    }
+    
+    private void updateCheckpoint()
+    {
+        //when a checkpoint along the path is reached, get the next checkpoint along the path
+        //then increment the checkpoint index
+        nextCheckpoint = mySpawner.getNextCheckpoint(checkpointIndex);
+        checkpointIndex++;
     }
 }
