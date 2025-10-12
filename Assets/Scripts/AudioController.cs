@@ -8,10 +8,15 @@ public class AudioController : MonoBehaviour
     public AudioClip nightStart;
     public AudioClip dayStart;
     AudioSource audioSource;
+
+    private GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        gm = GameManager.instance;
+        gm.onDayStart.AddListener(startDay);
+        gm.onNightStart.AddListener(startNight);
     }
 
     public void startNight()
@@ -31,5 +36,11 @@ public class AudioController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnDestroy()
+    {
+        gm.onDayStart.RemoveListener(startDay);
+        gm.onNightStart.RemoveListener(startNight);
     }
 }

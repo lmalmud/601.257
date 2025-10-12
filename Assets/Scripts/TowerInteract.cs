@@ -18,12 +18,18 @@ public class TowerInteract : MonoBehaviour
     private GameObject towerPreview;
     public PlayerStateController playerState;
     private float towerYoffset;
+    private GameManager gm;
     
     
     // Start is called before the first frame update
     void Start()
     {
         mainCam = Camera.main;
+        gm = GameManager.instance;
+        if (gm == null)
+        {
+            Debug.Log("TowerInteract::Start(): GameManager is null");
+        }
     }
     void getLookLocation()
     {
@@ -95,12 +101,26 @@ public class TowerInteract : MonoBehaviour
         itemColor.a = opacity;
         item.GetComponent<Renderer>().material.color = itemColor;
     }
+
+    bool placementValid()
+    {
+        int cost = towerPrefab.GetComponent<TowerInfo>().getPrice();
+        if(!gm.spendMoney(cost)) return false;
+        //TODO: check for valid tower placement
+        return true;
+    }
     
     
     
     void OnPlace()
     {
         if (towerPreview == null) return;
+        if (!placementValid())
+        {
+            //TODO: add some visual feedback -> make preview red?
+            Debug.Log("can't place this tower");
+            return;
+        }
         setOpacity(towerPreview, 1);
         towerPreview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
         setOpacity(towerPreview, .5f);

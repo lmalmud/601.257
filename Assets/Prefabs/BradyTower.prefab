@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8056625325223199708}
   - component: {fileID: 2453817389188537729}
   - component: {fileID: 2366789496826310131}
+  - component: {fileID: 3547394283307967044}
   m_Layer: 10
   m_Name: BradyTower
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
   shootPoint: {fileID: 411562358350962766}
   sightSensor: {fileID: 4421059900784383281}
   shootRate: 1
+--- !u!114 &3547394283307967044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681847106353007268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41da77569f3b3824bbfd2357fdca6bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3230708852071872605
 GameObject:
   m_ObjectHideFlags: 0

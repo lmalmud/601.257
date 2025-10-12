@@ -596,6 +596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
+      propertyPath: dayLength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+        type: 3}
       propertyPath: audioController
       value: 
       objectReference: {fileID: 1659968281}
@@ -1225,6 +1230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009201176}
   - component: {fileID: 2009201175}
+  - component: {fileID: 2009201177}
   m_Layer: 5
   m_Name: OverlayGUI
   m_TagString: Untagged
@@ -1264,6 +1270,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009201177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009201174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bbf8511fa1b3284e8a2180d237d1f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIDoc: {fileID: 2009201175}
 --- !u!1001 &2044317287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1344,11 +1363,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: minimap
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643341489669050819, guid: 43298e0b4d51ac2ccbd6699f706d3214,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 8533324287035565735, guid: 43298e0b4d51ac2ccbd6699f706d3214,
         type: 3}
