@@ -530,7 +530,9 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 2048
-  towerPrefab: {fileID: 681847106353007268, guid: 11a63e42c0f2d5907a08f96cd6230767,
+  towerPrefab: {fileID: 8151951996094867692, guid: 11a63e42c0f2d5907a08f96cd6230767,
+    type: 3}
+  plantPrefab: {fileID: 645382521673259681, guid: ff45f39df6f7f0060867338e5181b775,
     type: 3}
   lookLocation: {x: 0, y: 0, z: 0}
   targetPlaceLocation: {x: 0, y: 0, z: 0}

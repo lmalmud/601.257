@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
     //how much the sun is rotated each 'sun tick' in degrees
     public float sunRotatefraction;
     //public UnityEvent onDeath;
+    public UnityEvent onHealthChange;
+    public UnityEvent onMoneyChange;
+
+    public UnityEvent onDayStart;
+    public UnityEvent onNightStart;
     
     public AudioController audioController;
 
@@ -62,6 +67,8 @@ public class GameManager : MonoBehaviour
         endPointDetector.onReachEnd.AddListener(loseLife);
         InvokeRepeating("rotateSun", 0, 1/SunRotateTicksPerSecond);
         InvokeRepeating("toggleDayNight", 0, dayLength);
+        
+        // onDayStart.AddListener(giveStipend); //remove once economy implemented
     }
 
     void Update()
@@ -94,6 +101,12 @@ public class GameManager : MonoBehaviour
         checkWinCondition();
     }
 
+    //can remove once plant economy implemented
+    private void giveStipend()
+    {
+        changeMoney(500);
+    }
+
     private void checkWinCondition()
     {
 
@@ -117,11 +130,14 @@ public class GameManager : MonoBehaviour
         isDay = !isDay;
         if (isDay)
         {
-            audioController.startDay();
+            // changeMoney(500);
+            // audioController.startDay();
+            onDayStart.Invoke();
         }
         else
         {
-            audioController.startNight();
+            // audioController.startNight();
+            onNightStart.Invoke();
         }
         // Debug.Log(isDay);
     }
@@ -133,6 +149,7 @@ public class GameManager : MonoBehaviour
     public void loseLife()
     {
         life--;
+        onHealthChange.Invoke();
         // if (life <= 0)
         // {
         //     //onDeath.Invoke(); //sends out the onDeath event message
@@ -149,12 +166,14 @@ public class GameManager : MonoBehaviour
     public void changeMoney(int m)
     {
         money += m;
+        onMoneyChange.Invoke();
     }
 
     public bool spendMoney(int cost)
     {
         if (cost > money) return false;
         money -= cost;
+        onMoneyChange.Invoke();
         return true;
     }
 

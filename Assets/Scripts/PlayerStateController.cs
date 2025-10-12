@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStateController : MonoBehaviour
 {
     
-    public enum PlayerState{ViewMode, BuildMode}
+    public enum PlayerState{ViewMode, BuildMode, PlantMode}
     PlayerState currentState = PlayerState.ViewMode;
     // Start is called before the first frame update
     void Start()

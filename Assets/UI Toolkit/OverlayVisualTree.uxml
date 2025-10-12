@@ -1,8 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/OverlayStyle.uss?fileID=7433441132597879392&amp;guid=77ed507527f9cad3f90a4451abb2ae69&amp;type=3#OverlayStyle" />
-    <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:Label text="Label" name="Lives" class="information" style="-unity-text-align: upper-left; width: auto; translate: 0 0;" />
+    <Style src="project://database/Assets/UI%20Toolkit/New%20Folder/OverlayStyle.uss?fileID=7433441132597879392&amp;guid=77ed507527f9cad3f90a4451abb2ae69&amp;type=3#OverlayStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+        <ui:Label text="Lives: " name="Lives" class="information" style="-unity-text-align: upper-left; width: auto; translate: 0 0;" />
         <ui:Label text="Balance: " name="Balance" class="information" style="width: auto;" />
-        <ui:IntegerField label="Integer Field" value="42" name="Balance" class="information" />
+        <ui:VisualElement name="MenuBarParent" style="flex-grow: 1; top: 0; right: 0; left: 0; bottom: 0; align-items: center; justify-content: flex-end;">
+            <ui:VisualElement name="MenuBar" style="top: 0; left: 0; bottom: 0; right: 0; position: relative; justify-content: flex-end; align-items: center; align-self: auto; flex-direction: row;">
+                <ui:VisualElement name="Slot1" style="background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/HUD/Action%20Bar/Box.png?fileID=2800000&amp;guid=c874ff182495e478fb13baf1d87c6f68&amp;type=3#Box&apos;); position: relative; top: auto; left: auto; right: auto; bottom: auto; width: 100px; height: 100px;">
+                    <ui:VisualElement name="Mode" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/Inventory/Icons/magic_stick_icon.png?fileID=2800000&amp;guid=aa644faee90d706a6af8b2fd46717853&amp;type=3#magic_stick_icon&apos;); align-items: flex-start; justify-content: flex-end;">
+                        <ui:Label text="1" name="ControlKey" style="font-size: 38px; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Slot2" style="background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/HUD/Action%20Bar/Box.png?fileID=2800000&amp;guid=c874ff182495e478fb13baf1d87c6f68&amp;type=3#Box&apos;); position: relative; top: auto; left: auto; right: auto; bottom: auto; width: 100px; height: 100px;">
+                    <ui:VisualElement name="Mode" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/HUD/Action%20Bar/sword_icon.png?fileID=2800000&amp;guid=a364b6a09a4b25469b367a1312ac6e73&amp;type=3#sword_icon&apos;); align-items: flex-start; justify-content: flex-end;">
+                        <ui:Label text="2" name="ControlKey" style="font-size: 38px; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Slot3" style="background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/HUD/Action%20Bar/Box.png?fileID=2800000&amp;guid=c874ff182495e478fb13baf1d87c6f68&amp;type=3#Box&apos;); position: relative; top: auto; left: auto; right: auto; bottom: auto; width: 100px; height: 100px;">
+                    <ui:VisualElement name="Mode" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/minimalist-gui/Minimalist%20GUI%20-%20Sliced/Textures/Inventory/Icons/leaf_icon.png?fileID=2800000&amp;guid=2fba6465af52f76369d0f2287ff487e0&amp;type=3#leaf_icon&apos;); align-items: flex-start; justify-content: flex-end;">
+                        <ui:Label text="3" name="ControlKey" style="font-size: 38px; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
