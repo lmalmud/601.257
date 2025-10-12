@@ -80,8 +80,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9644363, y: 0.59965134, z: -0.45350403}
-  m_LocalScale: {x: 0.75, y: 1, z: 0.75}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1.3333334, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 490321978516112150}
   - {fileID: 2876966720231725505}
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
     type: 3}
+  life: 5
 --- !u!135 &4717338925374875243
 SphereCollider:
   m_ObjectHideFlags: 0

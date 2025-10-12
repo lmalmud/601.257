@@ -9,7 +9,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [Header("Wave Spawner Parameters")]
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private float startTime = 5;
     [SerializeField] private float endTime = 10;
     [SerializeField] private float spawnRate = 2;
@@ -27,7 +27,8 @@ public class WaveSpawner : MonoBehaviour
 
     void Spawn()
     {
-        GameObject eObj = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        int randIndex = Random.Range(0, 2); //pick a random enemy from prefabs list
+        GameObject eObj = Instantiate(enemyPrefabs[randIndex], transform.position, transform.rotation);
         EnemyFSM e = eObj.GetComponentInChildren<EnemyFSM>();
         e.setSpawner(this);
     }
