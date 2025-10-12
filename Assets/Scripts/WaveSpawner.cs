@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Spawns in a wave of enemies based on the given start time, end time, and spawn rate.
+*/
+
 public class WaveSpawner : MonoBehaviour
 {
+    [Header("Wave Spawner Parameters")]
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float startTime = 5;
     [SerializeField] private float endTime = 10;

@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Detects collisions of bullets with the enemy instance. 
+    Adds and removes enemy instances from the game manager.
+*/
 
 public class Enemy : MonoBehaviour
 {
+
+    [Header("Enemy Fields")]
     [SerializeField] private GameObject bulletPrefab;
 
 
