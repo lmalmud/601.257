@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerInfo : MonoBehaviour
 {
 
-    const int cost = 500;
+    public int cost = 500;
     // Start is called before the first frame update
     void Start()
     {

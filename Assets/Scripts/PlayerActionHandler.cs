@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TowerInteract : MonoBehaviour
@@ -11,13 +12,13 @@ public class TowerInteract : MonoBehaviour
     public LayerMask terrainLayer;
     private Camera mainCam;
     public GameObject towerPrefab;
+    public GameObject plantPrefab;
 
     public Vector3 lookLocation;
     public Vector3 targetPlaceLocation;
     public GameObject wandEndPoint;
-    private GameObject towerPreview;
+    private GameObject preview;
     public PlayerStateController playerState;
-    private float towerYoffset;
     private GameManager gm;
     
     
@@ -47,14 +48,12 @@ public class TowerInteract : MonoBehaviour
         // Gizmos.DrawRay(wandEndPoint.transform.position, gaze*10);
     }
 
-    //precondition: towerPrefab is set to the tower type that wants to be displayed/placed
     void getBuildLocation()
     {
         getLookLocation();
-        Bounds towerBounds = towerPrefab.GetComponent<MeshRenderer>().bounds;
-        towerYoffset = towerBounds.extents.y;
+        Bounds bounds = preview.GetComponent<BoxCollider>().bounds;
         targetPlaceLocation = lookLocation;
-        targetPlaceLocation.y += towerYoffset;
+        //targetPlaceLocation.y += bounds.extents.y;
         // Vector3 towerPlaceTarget = lookLocation;
         // Debug.Log("pre: " + towerPlaceTarget);
         // towerPlaceTarget.y += towerYoffset;
@@ -64,9 +63,9 @@ public class TowerInteract : MonoBehaviour
 
     void OnViewMode()
     {
-        if (playerState.getState() == PlayerStateController.PlayerState.BuildMode)
+        if (playerState.getState() != PlayerStateController.PlayerState.ViewMode)
         {
-            Destroy(towerPreview);
+            Destroy(preview);
             playerState.setState(PlayerStateController.PlayerState.ViewMode);
         }
     }
@@ -75,24 +74,36 @@ public class TowerInteract : MonoBehaviour
     {
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
-            
-            towerPreview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
-            // Bounds towerBounds = towerPreview.GetComponent<MeshRenderer>().bounds;
-            // towerYoffset = towerBounds.extents.y;
-            // Vector3 currPos = towerPreview.transform.position;
-            // currPos.y += towerYoffset;
-            // towerPreview.transform.position = currPos;
-            setOpacity(towerPreview, .5f);
+            setPreview(towerPrefab);
             playerState.setState(PlayerStateController.PlayerState.BuildMode);
-            
         }
-        // if (towerPreview == null)
-        // {
-        //     towerPreview = Instantiate(towerPrefab, targetPos, Quaternion.identity);
-        //     setOpacity(towerPreview, .5f);
-        // }
-        
-        
+        else if (playerState.getState() == PlayerStateController.PlayerState.PlantMode)
+        {
+            Destroy(preview);
+            setPreview(towerPrefab);
+            playerState.setState(PlayerStateController.PlayerState.BuildMode);
+        }
+    }
+
+    void OnPlantMode()
+    {
+        if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
+        {
+            setPreview(plantPrefab);
+            playerState.setState(PlayerStateController.PlayerState.PlantMode);
+        }
+        else if (playerState.getState() == PlayerStateController.PlayerState.BuildMode)
+        {
+            Destroy(preview);
+            setPreview(plantPrefab);
+            playerState.setState(PlayerStateController.PlayerState.PlantMode);
+        }
+    }
+
+    void setPreview(GameObject prefab)
+    {
+        preview = Instantiate(prefab, targetPlaceLocation, Quaternion.identity);
+        setOpacity(preview, .5f);
     }
 
     void setOpacity(GameObject item, float opacity)
@@ -104,7 +115,7 @@ public class TowerInteract : MonoBehaviour
 
     bool placementValid()
     {
-        int cost = towerPrefab.GetComponent<TowerInfo>().getPrice();
+        int cost = preview.GetComponent<TowerInfo>().getPrice();
         if(!gm.spendMoney(cost)) return false;
         //TODO: check for valid tower placement
         return true;
@@ -114,59 +125,34 @@ public class TowerInteract : MonoBehaviour
     
     void OnPlace()
     {
-        if (towerPreview == null) return;
+        if (preview == null) return;
         if (!placementValid())
         {
             //TODO: add some visual feedback -> make preview red?
             Debug.Log("can't place this tower");
             return;
         }
-        setOpacity(towerPreview, 1);
-        towerPreview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
-        setOpacity(towerPreview, .5f);
+        setOpacity(preview, 1);
+		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)
+        {
+            setPreview(towerPrefab);
+        }
+		else if(playerState.getState() == PlayerStateController.PlayerState.PlantMode)
+        {
+            setPreview(plantPrefab);
+        }
+        //preview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
+        //setOpacity(preview, .5f);
 
-        // return;
-        // Collider[] colliders = Physics.OverlapSphere(transform.position, distance, objectsLayer);
-        // detectedObject = null;
-        // //Debug.Log(colliders.Length);
-        // for (int i = 0; i < colliders.Length; i++)
-        // {
-        //     Collider currCollider = colliders[i];
-        //     // Debug.DrawLine(transform.position, currCollider.bounds.center, Color.green);
-        //     if (!currCollider.gameObject.CompareTag("TowerBase"))
-        //     {
-        //         continue;
-        //     }
-        //     Vector3 directionToController = Vector3.Normalize(currCollider.bounds.center - transform.position);
-        //     
-        //     float angleToCollider = Vector3.Angle(transform.forward, directionToController);
-        //     if (angleToCollider < angle)
-        //     {
-        //         if (!Physics.Linecast(transform.position, currCollider.bounds.center, out RaycastHit hit, obstaclesLayer))
-        //         {
-        //             detectedObject = currCollider;
-        //             break;
-        //         }
-        //
-        //     }
-        // }
-        //
-        // if (detectedObject == null)
-        // {
-        //     return;
-        // }
-        //
-        // detectedObject.gameObject.GetComponent<ControlTower>().PlaceTower();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        getBuildLocation();
-        
-        if (towerPreview != null)
+        if (preview != null)
         {
-            towerPreview.transform.position = targetPlaceLocation;
+			getBuildLocation();
+            preview.transform.position = targetPlaceLocation;
         }
         
     }

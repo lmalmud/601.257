@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("rotateSun", 0, 1/SunRotateTicksPerSecond);
         InvokeRepeating("toggleDayNight", 0, dayLength);
         
-        onDayStart.AddListener(giveStipend); //remove once economy implemented
+        // onDayStart.AddListener(giveStipend); //remove once economy implemented
     }
 
     void Update()
