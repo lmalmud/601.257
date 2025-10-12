@@ -4,12 +4,24 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+/*
+    Manages global game quatities: 
+        Life: life total, subtracting lives, handling death
+        Money: money total, gaining money, losing money
+        Wave/Enemy Array: keeps arrays of the total waves active and the total enemies active
+        Day/Night cycle: manage lighting and time of day.
+        Scenes: Changes to the loss or win screen when needed
+            - also checks for win and loss conditions when appropriate
+
+*/
+
 public class GameManager : MonoBehaviour
 {
+    [Header("General Game Parameters")]
     [SerializeField] private int life = 5; //my wife and four beautiful children
     [SerializeField] private int money = 1000; //<3 government stipend
-    //surely nothing bad will happen to my family
-    
+                                               //surely nothing bad will happen to my family
+
     public List<WaveSpawner> waves;
     public List<Enemy> enemies;
     public static GameManager instance;
@@ -44,7 +56,7 @@ public class GameManager : MonoBehaviour
             //onDeath.Invoke(); //sends out the onDeath event message
             //Destroy(gameObject);
             SceneManager.LoadScene("LoseScene");
-            
+
         }
     }
 
