@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //check the collision is from a player bullet
-        Debug.Log("trigger entered");
         if (other.gameObject.layer == bulletPrefab.layer)
         {
             Debug.Log("bullet!!");
