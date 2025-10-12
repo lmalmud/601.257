@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy Fields")]
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private int life = 5;
 
 
     void Start()
@@ -22,11 +23,15 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //check the collision is from a player bullet
-        Debug.Log("trigger entered");
         if (other.gameObject.layer == bulletPrefab.layer)
         {
-            Debug.Log("bullet!!");
-            Destroy(gameObject);
+            //Debug.Log("bullet!!");
+            life--;
+
+            if(life <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

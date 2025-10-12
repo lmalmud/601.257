@@ -27,6 +27,7 @@ public class EnemyFSM : MonoBehaviour
 
     void Awake()
     {
+        print("index in Awake: " + checkpointIndex);
         baseTnfm = GameObject.Find("House").transform;
 
         agent = GetComponentInParent<NavMeshAgent>();
@@ -34,7 +35,9 @@ public class EnemyFSM : MonoBehaviour
     
     void Start()
     {
+        print("index before start: " + checkpointIndex);
         updateCheckpoint(); //sets nextCheckpoint to the first checkpoint and checkpointIndex to 0
+        print("index after start: " + checkpointIndex);
     }
 
     void Update()
@@ -88,5 +91,6 @@ public class EnemyFSM : MonoBehaviour
         //then increment the checkpoint index
         nextCheckpoint = mySpawner.getNextCheckpoint(checkpointIndex);
         checkpointIndex++;
+        
     }
 }
