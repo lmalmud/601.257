@@ -14,6 +14,10 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float endTime = 10;
     [SerializeField] private float spawnRate = 2;
 
+    //array of points along the path in the order the enemy should pass them
+    //the last entry in this array should be the base
+    [SerializeField] private Transform[] checkpoints; 
+
     void Start()
     {
         GameManager.instance.addWave(this);
@@ -23,12 +27,20 @@ public class WaveSpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(enemyPrefab, transform.position, transform.rotation);
+        GameObject eObj = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        EnemyFSM e = eObj.GetComponentInChildren<EnemyFSM>();
+        e.setSpawner(this);
     }
 
     void EndSpawner()
     {
         GameManager.instance.removeWave(this);
         CancelInvoke();
+    }
+
+    //returns the enxt chackpoint along the path given the index the enemy just passed
+    public Transform getNextCheckpoint(int index)
+    {
+        return checkpoints[index + 1];
     }
 }
