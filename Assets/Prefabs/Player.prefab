@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 6929703758290538641}
   - component: {fileID: 5828008378025228642}
   - component: {fileID: 7632318034973866799}
+  - component: {fileID: 400093777352422784}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -529,10 +530,12 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 2048
-  towerPrefab: {fileID: 681847106353007268, guid: 0c173d4aa92f84be597daf3e280bbb58,
+  towerPrefab: {fileID: 681847106353007268, guid: 11a63e42c0f2d5907a08f96cd6230767,
     type: 3}
-  targetPos: {x: 0, y: 0, z: 0}
+  lookLocation: {x: 0, y: 0, z: 0}
+  targetPlaceLocation: {x: 0, y: 0, z: 0}
   wandEndPoint: {fileID: 2650184206322012213}
+  playerState: {fileID: 400093777352422784}
 --- !u!54 &7632318034973866799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -558,5 +561,17 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &400093777352422784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488381369425861867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf22874b1ccc5a649a40f8e379d250c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
