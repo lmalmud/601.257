@@ -35,6 +35,7 @@ public class EnemyFSM : MonoBehaviour
     
     void Start()
     {
+        checkpointIndex = -1;//if i dont have this here, checkpointIndex starts at 0 for some reason
         print("index before start: " + checkpointIndex);
         updateCheckpoint(); //sets nextCheckpoint to the first checkpoint and checkpointIndex to 0
         print("index after start: " + checkpointIndex);
@@ -79,8 +80,10 @@ public class EnemyFSM : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        print("trigger entered chkpt");
         if (other.tag == "Checkpoint")
         {
+            print("hit checkpoint");
             updateCheckpoint();
         }
     }
