@@ -27,7 +27,6 @@ public class EnemyFSM : MonoBehaviour
 
     void Awake()
     {
-        print("index in Awake: " + checkpointIndex);
         baseTnfm = GameObject.Find("House").transform;
 
         agent = GetComponentInParent<NavMeshAgent>();
@@ -36,9 +35,7 @@ public class EnemyFSM : MonoBehaviour
     void Start()
     {
         checkpointIndex = -1;//if i dont have this here, checkpointIndex starts at 0 for some reason
-        print("index before start: " + checkpointIndex);
         updateCheckpoint(); //sets nextCheckpoint to the first checkpoint and checkpointIndex to 0
-        print("index after start: " + checkpointIndex);
     }
 
     void Update()
@@ -77,18 +74,8 @@ public class EnemyFSM : MonoBehaviour
     {
         mySpawner = s;
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        print("trigger entered chkpt");
-        if (other.tag == "Checkpoint")
-        {
-            print("hit checkpoint");
-            updateCheckpoint();
-        }
-    }
     
-    private void updateCheckpoint()
+    public void updateCheckpoint()
     {
         //when a checkpoint along the path is reached, get the next checkpoint along the path
         //then increment the checkpoint index

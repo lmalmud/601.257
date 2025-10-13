@@ -14,6 +14,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int life = 5;
 
+    private EnemyFSM fsm;
+
+
+    void Awake()
+    {
+        fsm = GetComponentInChildren<EnemyFSM>();
+    }
 
     void Start()
     {
@@ -25,13 +32,17 @@ public class Enemy : MonoBehaviour
         //check the collision is from a player bullet
         if (other.gameObject.layer == bulletPrefab.layer)
         {
-            //Debug.Log("bullet!!");
+            
             life--;
 
-            if(life <= 0)
+            if (life <= 0)
             {
                 Destroy(gameObject);
             }
+        }
+        else if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            fsm.updateCheckpoint();
         }
     }
 
