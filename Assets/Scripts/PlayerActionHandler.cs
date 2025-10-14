@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class TowerInteract : MonoBehaviour
+public class PlayerActionHandler : MonoBehaviour
 {
     
-    public float distance = 3;
+    public float distance = 10;
 
-    public float angle = 60;
     public LayerMask terrainLayer;
+
+
     private Camera mainCam;
     public GameObject towerPrefab;
     public GameObject plantPrefab;
@@ -132,6 +133,7 @@ public class TowerInteract : MonoBehaviour
             Debug.Log("can't place this tower");
             return;
         }
+        //TODO: change this to co routine w/ LERPs
         setOpacity(preview, 1);
 		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)
         {
@@ -162,11 +164,6 @@ public class TowerInteract : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distance);
         
-        Vector3 rightDirection = Quaternion.Euler(0,angle,0) *  transform.forward;
-        Gizmos.DrawRay(transform.position, rightDirection*distance);
-        
-        Vector3 leftDirection = Quaternion.Euler(0,-angle,0) *  transform.forward;
-        Gizmos.DrawRay(transform.position, leftDirection*distance);
     }
 }
 

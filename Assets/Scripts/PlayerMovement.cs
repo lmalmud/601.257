@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5;
+    public float moveSpeed = 200;
 
     public GameObject playerEye;
     
@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRb;
     
     private bool isGrounded = true;
-    public float jumpForce = 1000;
-    public float groundedDistance = 1.1f;
+    public float jumpForce = 100;
+    public float groundedDistance = 0.2f;
 
     private Camera mainCam;
 
@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
-    public float sensitivityX = 15F;
-    public float sensitivityY = 15F;
+    public float sensitivityX = 1F;
+    public float sensitivityY = 1F;
 
     public float minimumX = -360F;
     public float maximumX = 360F;

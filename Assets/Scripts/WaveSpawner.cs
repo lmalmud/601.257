@@ -21,6 +21,14 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         GameManager.instance.addWave(this);
+        // InvokeRepeating("Spawn", startTime, spawnRate);
+        // Invoke("EndSpawner", endTime);
+        GameManager.instance.onNightStart.AddListener(startWave);
+    }
+
+    void startWave()
+    {
+        // GameManager.instance.addWave(this);
         InvokeRepeating("Spawn", startTime, spawnRate);
         Invoke("EndSpawner", endTime);
     }
