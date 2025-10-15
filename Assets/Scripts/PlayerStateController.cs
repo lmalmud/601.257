@@ -1,7 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+    Author: Brady Bock
+    Date Created: 10/1/25
+    Date Last Updated: 10/14/25
+    Summary: This script is responsible for storing the player's current state. 
+                Currently only in reguards to build mode
+*/
 public class PlayerStateController : MonoBehaviour
 {
     

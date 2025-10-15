@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4983366006275021312}
   - component: {fileID: 173222244905163275}
   - component: {fileID: 7712585005093651128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: plant1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +134,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8127
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

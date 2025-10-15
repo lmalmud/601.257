@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/*
+    Author: Brady Bock
+    Date Created: 10/1/25
+    Date Last Updated: 10/1/25
+    Summary: Manages the ties between the HUD and the actual values tracked in game
+*/
 
 public class OverlayGuiController : MonoBehaviour
 {
     
-    public UIDocument UIDoc;
+    [SerializeField] private UIDocument UIDoc;
 
     private Label m_HealthLabel;
     private Label m_MoneyLabel;

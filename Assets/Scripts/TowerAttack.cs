@@ -17,11 +17,13 @@ public class TowerAttack : MonoBehaviour
     public Sight sightSensor; // the gameobject that will handle sight
     public float shootRate; // how frequently this tower can shoot - measured in bullets/second
     private float lastFired; // the last time that a bullet was fired
+    public bool isPlaced = true;
 
     private float projectileSpeed = 20f; // speed to use if we can't get speed from bullet object
 
     void Update()
     {
+        if (!isPlaced) return;
         // reference for auto-shooting: https://discussions.unity.com/t/automatic-shooting-script/112483
         // if it is within the time frame to shoot and there is actually an object in range
         if (((Time.time - lastFired) > 1 / shootRate) & sightSensor.detectedObject != null)
@@ -71,5 +73,10 @@ public class TowerAttack : MonoBehaviour
             lastFired = Time.time; // update the time that was last fired to be right now
         }
 
+    }
+
+    public void setIsPlaced(bool value)
+    {
+        isPlaced = value;
     }
 }

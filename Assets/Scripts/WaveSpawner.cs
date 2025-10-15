@@ -10,14 +10,17 @@ public class WaveSpawner : MonoBehaviour
 {
     [Header("Wave Spawner Parameters")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private float startTime = 5;
+    [SerializeField] private float startTime = 0;
     [SerializeField] private float endTime = 10;
     [SerializeField] private float spawnRate = 2;
+    [SerializeField] private int numWaves = 2;
 
     //array of points along the path in the order the enemy should pass them
     //the last entry in this array should be the base
     [SerializeField] private Transform[] checkpoints; 
-
+    
+    private int waveCounter = 0;
+    
     void Start()
     {
         GameManager.instance.addWave(this);
@@ -29,8 +32,13 @@ public class WaveSpawner : MonoBehaviour
     void startWave()
     {
         // GameManager.instance.addWave(this);
-        InvokeRepeating("Spawn", startTime, spawnRate);
-        Invoke("EndSpawner", endTime);
+        if (waveCounter < numWaves)
+        {
+            InvokeRepeating("Spawn", startTime, spawnRate);
+            Invoke("EndSpawner", endTime);
+            waveCounter++;
+        }
+        
     }
 
     void Spawn()

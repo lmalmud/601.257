@@ -3,112 +3,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+/*
+    Author: Brady Bock
+    Date Created: 10/1/25
+    Date Last Updated: 10/14/25
+    Summary: This script is responsible for handling player x-z translation, rotation, and jumping
+*/
 public class PlayerMovement : MonoBehaviour
 {
-
-    public float moveSpeed = 200;
-
-    public GameObject playerEye;
     
-    private Vector2 movementDir;
+    
+
+    [Header("Jump Parameters")]
+    [SerializeField] private float jumpForce = 100;
+    [SerializeField] private float groundedDistance = 0.2f;
+    [SerializeField] private GameObject bottom;
+    
+    [Header("Move Parameters")]
+    [SerializeField] private float maxAcceleration = 10f;
+    [SerializeField] private float maxDeceleration = 20f;
+    [SerializeField] private float maxSpeed = 10f;
+
+    [Header("Rotate Parameters")]
+    [SerializeField] private float sensitivityX = 1F;
+    [SerializeField] private float sensitivityY = 1F;
+    [SerializeField] private float minimumY = -60F;
+    [SerializeField] private float maximumY = 60F;
+    [SerializeField] private GameObject playerEye;
+    
+    
+    //variables for keeping stack of the player's current state
+    private float rotationY = 0F;
+    private Vector3 movementDir;
     private Vector3 scaledMovement;
-    
     private Rigidbody playerRb;
-    
     private bool isGrounded = true;
-    public float jumpForce = 100;
-    public float groundedDistance = 0.2f;
 
-    private Camera mainCam;
-
-    public GameObject bottom;
-    
-    
-    public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
-    public RotationAxes axes = RotationAxes.MouseXAndY;
-    public float sensitivityX = 1F;
-    public float sensitivityY = 1F;
-
-    public float minimumX = -360F;
-    public float maximumX = 360F;
-
-    public float minimumY = -60F;
-    public float maximumY = 60F;
-    private Vector2 rotateDir;
-
-    float rotationY = 0F;
-    
     
     void OnMove(InputValue value)
     {
-        movementDir = value.Get<Vector2>().normalized;
-        scaledMovement = movementDir * (moveSpeed);
+        Vector2 input = value.Get<Vector2>();
+        movementDir = new Vector3(input.x, 0, input.y);
+        movementDir = Vector3.ClampMagnitude(movementDir, 1f);
+        Debug.Log(movementDir);
     }
 
     
     
     public void OnLook(InputValue value){
-        // lookDir = value.Get<Vector2>();
-        // scaledLookDir = lookDir * lookSpeed;
-        
-        Vector2 mouseScreenPos2D = Mouse.current.position.ReadValue();
-        Vector3 mouseScreenPos3D = new Vector3(mouseScreenPos2D.x, mouseScreenPos2D.y, 4f); 
-        Vector3 worldPosition = mainCam.ScreenToWorldPoint(mouseScreenPos3D);
-        Quaternion rotation = Quaternion.FromToRotation(gameObject.transform.forward, worldPosition);
+        float rotationX = transform.localEulerAngles.y + value.Get<Vector2>().x * sensitivityX;
 
-        // Debug.Log("mouse: " + mouseScreenPos3D);
-        // Debug.Log("look: " + lookDir);
+        rotationY += value.Get<Vector2>().y * sensitivityY;
+        rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
         
-        
-        
-        if (axes == RotationAxes.MouseXAndY)
-        {
-            
-            float rotationX = transform.localEulerAngles.y + value.Get<Vector2>().x * sensitivityX;
-
-            rotationY += value.Get<Vector2>().y * sensitivityY;
-            rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-            // rotateDir = new Vector2(-rotationY, rotationX);
-            // Debug.Log(rotateDir);
-            
-            //side-to-side rotations move entire body
-            transform.localEulerAngles = new Vector3(0, rotationX, 0);
-            //up and down rotation just moves "eyes" -> camera
-            playerEye.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
-        }
-        else if (axes == RotationAxes.MouseX)
-        {
-            //Debug.Log("2");
-            // transform.Rotate(0, value.Get<Vector2>().x * sensitivityX, 0);
-            rotateDir = new Vector2(0, value.Get<Vector2>().x * sensitivityX);
-        }
-        else
-        {
-            //Debug.Log("3");
-            rotationY += value.Get<Vector2>().y * sensitivityY;
-            rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-            rotateDir = new Vector2(-rotationY, playerEye.transform.localEulerAngles.y);
-            
-            // transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-        }
+        //side-to-side rotations moves entire body
+        transform.localEulerAngles = new Vector3(0, rotationX, 0);
+        //up and down rotation just moves "eyes" -> camera
+        playerEye.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
+       
 
     }
 
     void OnJump(InputValue value)
     {
-        //Debug.Log("jumped");
         if (isGrounded)
         {
-            //Debug.Log("impulse applied");
             playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }
     }
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        mainCam = Camera.main;
     }
 
     // Update is called once per frame
@@ -116,32 +84,38 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = CheckIsGrounded();
         
-        
-        //Physics.Raycast(wandEndPoint.transform.position, gaze,  out RaycastHit hit, 10);
-        
-        //Debug.Log(CheckIsGrounded());
-        // rb.transform.Translate(movementDir * (moveSpeed * Time.deltaTime), Space.World);
     }
 
     private void FixedUpdate()
     {
-        playerRb.AddRelativeForce(scaledMovement.x, 0, scaledMovement.y);
+        Vector3 targetVelocity = movementDir * maxSpeed;
+        AccelerateToward(targetVelocity);
+    }
+    
+    void AccelerateToward(Vector3 targetVelocity) {
+        float limit = maxAcceleration;
+        Vector3 relativeVelocity = Quaternion.Inverse(transform.rotation) * playerRb.velocity;
+
+        Vector3 deltaV = targetVelocity - relativeVelocity;
+
+        // If we're stopping or reversing direction, use deceleration limit instead.
+        if (Vector3.Dot(relativeVelocity, deltaV) < 0)
+        {
+            limit = maxDeceleration;
+        }
+        // Since we're calling this in FixedUpdate, deltaTime gives our fixed timestep
+        Vector3 accel = deltaV / Time.deltaTime;
+        accel = Vector3.ClampMagnitude(accel, limit);
+        accel = Quaternion.Euler(0, transform.rotation.y, 0) * accel;
+        accel.y = 0;
+        playerRb.AddRelativeForce(accel, ForceMode.Acceleration);
     }
 
     bool CheckIsGrounded()
     {
-        
-        // if (playerRb.velocity.y == 0)
-        // {
-        
+        //TODO make this a more sophisticated check. numerous cases where it fails (ex. when standing on the edge of something)
         return Physics.Raycast(bottom.transform.position, Vector3.down, out RaycastHit hit, groundedDistance);
-        // }
 
-        // return true;
     }
 
-    void OnDrawGizmos()
-    {
-        
-    }
 }

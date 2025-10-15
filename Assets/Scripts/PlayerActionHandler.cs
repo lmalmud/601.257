@@ -2,24 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+/*
+    Author: Brady Bock
+    Date Created: 10/1/25
+    Date Last Updated: 10/1/25
+    Summary: This script is responsible for keeping track of the player's build mode and 
+				the actual placing of towers/plants
+*/
 
 public class PlayerActionHandler : MonoBehaviour
 {
     
-    public float distance = 10;
+    [Header("Player look location")]
+    [SerializeField] private float distance = 10;
+    [SerializeField] private LayerMask terrainLayer;
+    [SerializeField] private GameObject wandEndPoint;
 
-    public LayerMask terrainLayer;
+    [Header("Tower/plant placement")]
+    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private GameObject plantPrefab;
+    [SerializeField] private PlayerStateController playerState;
+
+
 
 
     private Camera mainCam;
-    public GameObject towerPrefab;
-    public GameObject plantPrefab;
-
-    public Vector3 lookLocation;
-    public Vector3 targetPlaceLocation;
-    public GameObject wandEndPoint;
+    private Vector3 lookLocation;
+    private Vector3 targetPlaceLocation;
     private GameObject preview;
-    public PlayerStateController playerState;
     private GameManager gm;
     
     
@@ -76,12 +86,14 @@ public class PlayerActionHandler : MonoBehaviour
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
             setPreview(towerPrefab);
+            preview.GetComponent<TowerAttack>().setIsPlaced(false);
             playerState.setState(PlayerStateController.PlayerState.BuildMode);
         }
         else if (playerState.getState() == PlayerStateController.PlayerState.PlantMode)
         {
             Destroy(preview);
             setPreview(towerPrefab);
+            preview.GetComponent<TowerAttack>().setIsPlaced(false);
             playerState.setState(PlayerStateController.PlayerState.BuildMode);
         }
     }
@@ -104,6 +116,7 @@ public class PlayerActionHandler : MonoBehaviour
     void setPreview(GameObject prefab)
     {
         preview = Instantiate(prefab, targetPlaceLocation, Quaternion.identity);
+		preview.GetComponent<Collider>().isTrigger = true;
         setOpacity(preview, .5f);
     }
 
@@ -116,7 +129,7 @@ public class PlayerActionHandler : MonoBehaviour
 
     bool placementValid()
     {
-        int cost = preview.GetComponent<TowerInfo>().getPrice();
+        int cost = preview.GetComponent<TowerCost>().getPrice();
         if(!gm.spendMoney(cost)) return false;
         //TODO: check for valid tower placement
         return true;
@@ -135,12 +148,15 @@ public class PlayerActionHandler : MonoBehaviour
         }
         //TODO: change this to co routine w/ LERPs
         setOpacity(preview, 1);
+		preview.GetComponent<Collider>().isTrigger = false;
 		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)
         {
+            preview.GetComponent<TowerAttack>().setIsPlaced(true);
             setPreview(towerPrefab);
         }
 		else if(playerState.getState() == PlayerStateController.PlayerState.PlantMode)
         {
+            preview.GetComponent<PlantBehavior>().placePlant();
             setPreview(plantPrefab);
         }
         //preview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);

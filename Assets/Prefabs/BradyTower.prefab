@@ -1453,8 +1453,8 @@ GameObject:
   - component: {fileID: 8493496195597922709}
   - component: {fileID: 7571840205639223555}
   - component: {fileID: 4311997944514815998}
-  - component: {fileID: 1619176997483742907}
   - component: {fileID: 6516407028155680522}
+  - component: {fileID: 6195317238688640758}
   m_Layer: 0
   m_Name: BradyTower
   m_TagString: Untagged
@@ -1556,18 +1556,7 @@ MonoBehaviour:
   shootPoint: {fileID: 535760836499635617}
   sightSensor: {fileID: 7076394948338254363}
   shootRate: 1
---- !u!114 &1619176997483742907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8151951996094867692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41da77569f3b3824bbfd2357fdca6bc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isPlaced: 1
 --- !u!65 &6516407028155680522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1581,7 +1570,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1589,6 +1578,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.999999, y: 5.1571345, z: 4.000001}
   m_Center: {x: -0.022491872, y: 2.6025288, z: -0.14614522}
+--- !u!114 &6195317238688640758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151951996094867692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4f2a3b5781740c4b426cd43c219ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 500
 --- !u!1 &8281488192246056184
 GameObject:
   m_ObjectHideFlags: 0
