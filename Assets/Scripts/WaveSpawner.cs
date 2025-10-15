@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("Wave Spawner Parameters")]
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private float startTime = 0;
-    [SerializeField] private float endTime = 10;
+    [SerializeField] private float endTime = 20;
     [SerializeField] private float spawnRate = 2;
     [SerializeField] private int numWaves = 2;
 
@@ -23,6 +23,7 @@ public class WaveSpawner : MonoBehaviour
     
     void Start()
     {
+        GameManager.instance.addWave(this);
         GameManager.instance.addWave(this);
         // InvokeRepeating("Spawn", startTime, spawnRate);
         // Invoke("EndSpawner", endTime);

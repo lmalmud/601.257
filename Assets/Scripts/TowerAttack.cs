@@ -63,7 +63,7 @@ public class TowerAttack : MonoBehaviour
             Vector3 aimDir = predictedPos - spawnPoint;
 
             // uncomment to see line to where bullets aim
-            //Debug.DrawLine(shootPoint.transform.position, targetCenter, Color.blue, 2f);
+            Debug.DrawLine(shootPoint.transform.position, targetCenter, Color.blue, 2f);
 
             clone.transform.position = spawnPoint; // make the bullet spawn at the shootPoint of the tower
             clone.transform.rotation = Quaternion.LookRotation(aimDir); // make the bullet point towards the enemy

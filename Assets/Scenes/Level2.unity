@@ -1073,7 +1073,7 @@ PrefabInstance:
     - target: {fileID: -89322465066509077, guid: db6d9895f31e9f84aab25b7db150598d,
         type: 3}
       propertyPath: endTime
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -89322465066509077, guid: db6d9895f31e9f84aab25b7db150598d,
         type: 3}
@@ -1083,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: -89322465066509077, guid: db6d9895f31e9f84aab25b7db150598d,
         type: 3}
       propertyPath: startTime
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -89322465066509077, guid: db6d9895f31e9f84aab25b7db150598d,
         type: 3}

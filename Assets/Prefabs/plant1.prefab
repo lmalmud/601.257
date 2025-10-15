@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4773592687791500854}
   - component: {fileID: 2298223289000209758}
   - component: {fileID: 1751206831062487860}
-  - component: {fileID: 4983366006275021312}
   - component: {fileID: 173222244905163275}
   - component: {fileID: 7712585005093651128}
+  - component: {fileID: 5765124023894460076}
+  - component: {fileID: 3213061243018584791}
   m_Layer: 10
   m_Name: plant1
   m_TagString: Untagged
@@ -111,19 +112,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8155647652730173735, guid: 5c2e7e2c205ec7f4d8116c2cd29e1a53, type: 3}
---- !u!114 &4983366006275021312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645382521673259681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41da77569f3b3824bbfd2357fdca6bc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!65 &173222244905163275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -158,3 +146,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   income: 500
+--- !u!114 &5765124023894460076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645382521673259681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4f2a3b5781740c4b426cd43c219ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 100
+--- !u!114 &3213061243018584791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645382521673259681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7495f48b0ee92511afce8a55583a5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewMaterial: {fileID: 2100000, guid: 418ef80c34b2c01fea0d1f04f74523fd, type: 2}
+  placedMaterial: {fileID: 2100000, guid: b248c2d18c7fbe50c83ae93936426fb7, type: 2}

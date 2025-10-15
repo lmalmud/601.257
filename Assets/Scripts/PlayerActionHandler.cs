@@ -62,9 +62,9 @@ public class PlayerActionHandler : MonoBehaviour
     void getBuildLocation()
     {
         getLookLocation();
-        Bounds bounds = preview.GetComponent<BoxCollider>().bounds;
         targetPlaceLocation = lookLocation;
-        //targetPlaceLocation.y += bounds.extents.y;
+        // Bounds bounds = preview.GetComponent<BoxCollider>().bounds;
+        // targetPlaceLocation.y += bounds.extents.y;
         // Vector3 towerPlaceTarget = lookLocation;
         // Debug.Log("pre: " + towerPlaceTarget);
         // towerPlaceTarget.y += towerYoffset;
@@ -117,6 +117,7 @@ public class PlayerActionHandler : MonoBehaviour
     {
         preview = Instantiate(prefab, targetPlaceLocation, Quaternion.identity);
 		preview.GetComponent<Collider>().isTrigger = true;
+        preview.GetComponent<PlaceableMaterialManager>().setMaterial(0);
         setOpacity(preview, .5f);
     }
 
@@ -147,6 +148,7 @@ public class PlayerActionHandler : MonoBehaviour
             return;
         }
         //TODO: change this to co routine w/ LERPs
+        preview.GetComponent<PlaceableMaterialManager>().setMaterial(1);
         setOpacity(preview, 1);
 		preview.GetComponent<Collider>().isTrigger = false;
 		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)

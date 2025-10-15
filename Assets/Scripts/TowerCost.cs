@@ -14,7 +14,8 @@ public class TowerCost : MonoBehaviour
 
     [SerializeField]
     private int towerCost;
-
+    
+    
     public int getPrice()
     {
         return towerCost;
