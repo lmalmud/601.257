@@ -116,19 +116,41 @@ Our goals for the first checkpoint will include:
 - ~~A win/lose condition~~
 
 ## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
-- Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]
-- Implement better target selection for towers
-- A second level
-    - Pathfinding system improvements so that paths may loop around on themselves [TS]
-- Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain
+- ~~Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]~~
+- Implement better target selection for towers (i.e. does not hit the closest enemy but rather the one that is closest to the the goal) [LM]
+    - Moved to next checkpoint
+- ~~A second level~~
+    - We did not add a second level, per se, but the day and night cycle
+    - ~~Pathfinding system improvements so that paths may loop around on themselves [TS]~~
+- ~~Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain~~
 - More complex models than just a capsule
-    - Enhanced tower prefab (& one variant, if time)
-    - Enhanced enemy prefab (& one variant, if time)
-- Text on the win/lose screen
-- Add day/night loop with lighting 
-  - Add multiple rounds to each level
+    - ~~Enhanced tower prefab (& one variant, if time)~~
+    - ~~Enhanced enemy prefab (& one variant, if time)~~
+- ~~Text on the win/lose screen~~
+    - We decided this would be for a different checkpoint
+- ~~Add day/night loop with lighting~~
+  - ~~Add multiple rounds to each level~~
+### Additions
+- Basic UI
+- Tower preview for placement
+- Plant stuff!
+- Improved player movement and physics
+- You cannot body-block the enemies
+
+## Project Part 3: Visual Effects
+- Incorporate decorations and better base assets from the separate scenes
+- Text on win/lose screen
+- Be able to pick tower
+- Towers aim to enemy that is closest to goal
+- You can place towers on the path, but they won't block the enemeies (we will add more restrictions on where towers can be placed)
+- Add water tower variant
+    - Will slow down enemies and have particles
+- Add fire bullets that set enemies on fire
+- Effect on placing tower
 
 ## Development
+### Project Part 2: 3D Scenes and Models
+
 ### Project 1-2 Checkpoint
 * You can see the available progress in the scene called ``Level1```
 * Use WASD to move, space to jump, and the mouse to look around
@@ -136,3 +158,15 @@ Our goals for the first checkpoint will include:
 * The win condition is when all of the enemies are killed and you still have life (you will see a hot green screen)
 * The lose condition is if five enemies make it to the end of the path (don't place any towers to see the lose condition in action and you will see a red screen)
 * At this stage, we have passive income in the form of an initial money allocation.
+
+## Instructions for Testing the Project
+* Play the ```Level 2``` scene
+* Multiple tower variants exist, but you can only place one type because of UI reasons'
+* WASD to move around
+* Space to jump
+* 1, 2, 3 numbers to toggle between view mode, place tower, and place plant, respectively
+* Money and lives are displayed in the top left of the screen
+* You need to place plants in order to make more money
+    * You cannot place a tower if you do not have enough money
+    * You get a $500 stipend every day
+* There are two waves of enemies i.e. two nights (one wave per night)
