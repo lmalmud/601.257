@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2708569344171978121
+--- !u!1001 &5844157883481339683
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,52 +11,42 @@ PrefabInstance:
     - target: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_Name
-      value: FireBullet
+      value: WaterBullet
       objectReference: {fileID: 0}
     - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
-      propertyPath: m_Parameters.colorGradient.atime1
-      value: 65535
+      propertyPath: m_PreviewTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
+        type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0
+      value: 0.18396229
       objectReference: {fileID: 0}
     - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.10849059
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.65999126
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297023415453778723, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 1
+      value: 0.372193
       objectReference: {fileID: 0}
     - target: {fileID: 4314964244200519853, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2484429
       objectReference: {fileID: 0}
     - target: {fileID: 4314964244200519853, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.062374204
       objectReference: {fileID: 0}
     - target: {fileID: 4314964244200519853, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
@@ -101,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 6394402271482394709, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
         type: 3}
       propertyPath: type
-      value: fire
+      value: water
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

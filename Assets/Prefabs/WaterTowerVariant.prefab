@@ -162,31 +162,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.94
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2127663
+      value: -0.012595605
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.023544313
+      value: 0.18479674
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.58474034
+      value: 0.5552709
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.78246725
+      value: 0.810781
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -198,7 +198,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507059566585778, guid: a27d6e7d56bdc84479be345a168e6c70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -417.96
+      value: -385.75598
+      objectReference: {fileID: 0}
+    - target: {fileID: 198696848900420082, guid: a27d6e7d56bdc84479be345a168e6c70,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 198696848900420082, guid: a27d6e7d56bdc84479be345a168e6c70,
         type: 3}
@@ -983,6 +988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198696848900420082, guid: a27d6e7d56bdc84479be345a168e6c70,
         type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198696848900420082, guid: a27d6e7d56bdc84479be345a168e6c70,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 1.1
       objectReference: {fileID: 0}
@@ -1297,6 +1307,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterTowerVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 884809578396405346, guid: 98823c0c4496c49d6a152f4d03d366cc,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4670554979103237485, guid: d9ccfaa6c6b824d778d7dff1168eeb89,
+        type: 3}
     - target: {fileID: 3270681683899927425, guid: 98823c0c4496c49d6a152f4d03d366cc,
         type: 3}
       propertyPath: m_LocalPosition.x

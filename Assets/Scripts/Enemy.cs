@@ -13,45 +13,10 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Fields")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int life = 5;
-
-    // prefab to show when the enemy is on fire (assign in inspector)
-    [SerializeField] private GameObject fireVfxPrefab;
+    [SerializeField] private ParticleSystem fireParticlePrefab;
 
     private EnemyFSM fsm;
 
-    // active status effects 
-    private class StatusInstance
-    {
-        public string id;
-        public float remaining;
-        public float dps; // damage per second
-        public GameObject vfxInstance; // optional spawned visual effect tied to this status
-        public StatusInstance(string id, float duration, float dps, GameObject vfxInstance = null)
-        {
-            this.id = id;
-            this.remaining = duration;
-            this.dps = dps;
-            this.vfxInstance = vfxInstance;
-        }
-    }
-    private List<StatusInstance> activeStatuses = new List<StatusInstance>();
-
-    // public helper to add a status effect
-    public void AddStatus(string id, float duration, float dps)
-    {
-        GameObject spawnedVfx = null;
-
-        // spawn VFX for fire status if a prefab is provided
-        if (id == "fire" && fireVfxPrefab != null)
-        {
-            spawnedVfx = Instantiate(fireVfxPrefab, transform);
-            spawnedVfx.transform.localPosition = Vector3.zero; // attach to enemy origin
-            spawnedVfx.transform.localScale = Vector3.one; // ensure visible scale
-            Debug.Log($"Spawned '{id}' VFX on {gameObject.name}"); // debug
-        }
-        activeStatuses.Add(new StatusInstance(id, duration, dps));
-        activeStatuses.Add(new StatusInstance(id, duration, dps, spawnedVfx));
-    }
 
     void Awake()
     {
@@ -63,66 +28,33 @@ public class Enemy : MonoBehaviour
         GameManager.instance.addEnemy(this);
     }
 
-    void Update()
-    {
-        if (activeStatuses.Count > 0)
-        {
-            float dt = Time.deltaTime;
-            // iterate backwards to allow removal
-            for (int i = activeStatuses.Count - 1; i >= 0; i--)
-            {
-                var s = activeStatuses[i];
-                float damageThisFrame = s.dps * dt;
-                if (damageThisFrame > 0f)
-                {
-                    TakeDamage((int) damageThisFrame);
-                }
-                s.remaining -= dt;
-                if (s.remaining <= 0f)
-                {
-                    // destroy associated visual effect when the status ends
-                    if (s.vfxInstance != null)
-                    {
-                        Destroy(s.vfxInstance);
-                    }
-                    activeStatuses.RemoveAt(i);
-                }
-            }
-        }
-    }
-    
-    // central damage function (handles death check)
-    public void TakeDamage(int amount)
-    {
-        life -= amount;
-        if (life <= 0f)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     void OnTriggerEnter(Collider other)
     {
-        // check the collision is from a player bullet
+        //check the collision is from a player bullet
         if (other.gameObject.layer == bulletPrefab.layer)
         {
+            // ADDED BY LUCY 10/30
             // try to read damage from the bullet; fall back to 1 if component missing
             BulletDamage bd = other.gameObject.GetComponent<BulletDamage>();
             int damage = (bd != null) ? bd.damage : 1;
 
-            TakeDamage((int) damage);
-
-            // apply any effect components on the bullet
-            foreach (var mb in other.gameObject.GetComponents<MonoBehaviour>())
-            {
-                if (mb is IApplyEffect effect)
-                {
-                    effect.ApplyTo(this);
-                }
-            }
-
+            life -= damage; // CHANGED BY LUCY 10/30
             Destroy(other.gameObject); // destroy the bullet on hit
 
+            if (bd != null && bd.type == "fire" && fireParticlePrefab != null)
+            {
+                Instantiate(fireParticlePrefab, transform.position, Quaternion.identity, transform);
+            }
+
+            if (bd != null && bd.type == "water")
+            {
+                // apply water slow-down effect here @teddy I don't know how to do this
+            }
+
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (other.gameObject.CompareTag("Checkpoint"))
         {
@@ -136,3 +68,4 @@ public class Enemy : MonoBehaviour
     }
 
 }
+
