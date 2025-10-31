@@ -51,17 +51,15 @@ Another game that we like the art style of. Both Bad North and Thronefall have l
 
 ![bad north image2](GameDesignDocScreenshots/badNorth2.png) 
  
+### Plants vs. Zombies 
+
+We’re taking inspiration from the sun and sunflowers mechanic. We plan to have plants that generate income (your farm), and the monsters will first destroy those plans, causing you to lose income. However, you can lose those plants and it won’t be game over yet (much like how you can lose your sunflowers in PvZ without a game over). However, if you let your plants get eaten, you lose out on income.  
 
 ### Minecraft 
 
 One of our favorite parts of Minecraft was the farming- providing a peaceful, routine activity that integrated into the rest of the gameplay, yet has a different feel to some of the other activities players partake in. We are inspired by these mechanics, as well as some of the textures, designs, and properties of livestock and farming. 
 
 ![Minecraft Farming Image](https://images.surferseo.art/4d7c9bab-c8e4-427a-8b2f-b9d3147e24aa.png) 
-
-
-### Plants vs. Zombies 
-
-We’re taking inspiration from the sun and sunflowers mechanic. We plan to have plants that generate income (your farm), and the monsters will first destroy those plans, causing you to lose income. However, you can lose those plants and it won’t be game over yet (much like how you can lose your sunflowers in PvZ without a game over). However, if you let your plants get eaten, you lose out on income.  
 
 
 ## Gameplay 
@@ -79,7 +77,7 @@ We’re taking inspiration from the sun and sunflowers mechanic. We plan to have
     - The player will have the ability to place towers in different locations and of different types. 
 - Farming mechanic 
     - There are set planters and you decide what crop goes in them  
-    - crops give money after $$x$$ cycles 
+    - crops give money after $x$ cycles 
     - Longer = more money but more of an investment 
     - Plants automatically replant themselves, the player just decides what goes in them
 - Enemies
@@ -101,7 +99,7 @@ We’re taking inspiration from the sun and sunflowers mechanic. We plan to have
 
 ## Development Plan 
 
-### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
+## Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
 
 We first intend to implement the tower defense aspect of our game, layering on the farming components as time progresses. Before we have implemented the farming simulation aspect of the game (which is the mechanism that will enable players to get more and improved resources), we will include automatically allocated resources. This will allow for us to develop our game as though it were a regular tower defense, and later layer in the simulation aspect. 
 
@@ -130,6 +128,24 @@ Our goals for the first checkpoint will include:
     - We decided this would be for a different checkpoint
 - ~~Add day/night loop with lighting~~
   - ~~Add multiple rounds to each level~~
+
+Flowers that generate money. The texture is changed to show a transparent version as the player places the flowers.
+![Example of Flowers](Assets/readme_screenshots/flower_example.png)
+
+Different enemy prefabs- each spawns randomly. How cute!
+![Two enemy types](Assets/readme_screenshots/enemy_example.png)
+
+One of the tower variants with animated fire.
+![Tower](Assets/readme_screenshots/tower_example.png)
+
+An overhead view of the map renders in the top right corner.
+![Minimap preview](Assets/readme_screenshots/minimap.png)
+
+### Assets Added
+* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080
+* [LowPoly Environment Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479)
+* FIXME @Teddy @Brady did you add other assets
+
 ### Additions
 - Basic UI
 - Tower preview for placement
@@ -137,27 +153,31 @@ Our goals for the first checkpoint will include:
 - Improved player movement and physics
 - You cannot body-block the enemies
 
-## Project Part 3: Visual Effects
+## Project Part 3: Visual Effects (Ch 11, 12, 13)
 - Incorporate decorations and better base assets from the separate scenes
 - Text on win/lose screen
 - Be able to pick tower
-- Towers aim to enemy that is closest to goal
+- ~~Towers aim to enemy that is closest to goal~~
 - You can place towers on the path, but they won't block the enemeies (we will add more restrictions on where towers can be placed)
-- Add water tower variant
-    - Will slow down enemies and have particles
-- Add fire bullets that set enemies on fire
+- ~~Add water tower variant~~
+    - ~~Will slow down enemies and have particles~~
+- ~~Add fire bullets that set enemies on fire~~
 - Effect on placing tower
 
-## Development
-### Project Part 2: 3D Scenes and Models
+Revamped base (no longer just a cube!)
+![Farm](Assets/readme_screenshots/farm.png)
 
-### Project 1-2 Checkpoint
-* You can see the available progress in the scene called ``Level1```
-* Use WASD to move, space to jump, and the mouse to look around
-* Press ```e``` to place a tower near a pedestal
-* The win condition is when all of the enemies are killed and you still have life (you will see a hot green screen)
-* The lose condition is if five enemies make it to the end of the path (don't place any towers to see the lose condition in action and you will see a red screen)
-* At this stage, we have passive income in the form of an initial money allocation.
+Fire tower deals a different amount of damage than the regular tower and applies a visual effect.
+![Fire tower demo](Assets/readme_screenshots/fire_tower_example.gif)
+
+Water tower has a different bullet trail and will apply a slowing effect to enemies. Note also that towers shoot at the enemy that is closest to the base.
+![Water tower demo](Assets/readme_screenshots/water_tower_example.gif)
+
+### Additions
+* Removed mouse from screen
+
+## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
+FIXME @ Lucy @ Teddy @ Brady
 
 ## Instructions for Testing the Project
 * Play the ```Level 2``` scene
