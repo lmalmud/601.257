@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public UnityEvent onChanged;
 
+    public Transform homeBase;
+
     [SerializeField] private Light sun;
 
     private bool isDay;
