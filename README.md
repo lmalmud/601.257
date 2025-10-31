@@ -156,18 +156,24 @@ An overhead view of the map renders in the top right corner.
 - Incorporate decorations and better base assets from the separate scenes
 - Text on win/lose screen
 - Be able to pick tower
-- Towers aim to enemy that is closest to goal
+- ~~Towers aim to enemy that is closest to goal~~
 - You can place towers on the path, but they won't block the enemeies (we will add more restrictions on where towers can be placed)
-- Add water tower variant
-    - Will slow down enemies and have particles
-- Add fire bullets that set enemies on fire
+- ~~Add water tower variant~~
+    - ~~Will slow down enemies and have particles~~
+- ~~Add fire bullets that set enemies on fire~~
 - Effect on placing tower
 
 Revamped base (no longer just a cube!)
 ![Farm](Assets/readme_screenshots/farm.png)
 
+Fire tower deals a different amount of damage than the regular tower and applies a visual effect.
+![Fire tower demo](Assets/readme_screenshots/fire_tower_example.gif)
+
+Water tower has a different bullet trail and will apply a slowing effect to enemies. Note also that towers shoot at the enemy that is closest to the base.
+![Water tower demo](Assets/readme_screenshots/water_tower_example.gif)
+
 ### Additions
-FIXME @ Lucy @ Teddy @ Brady
+* Removed mouse from screen
 
 ## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
 FIXME @ Lucy @ Teddy @ Brady
