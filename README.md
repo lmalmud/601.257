@@ -51,17 +51,15 @@ Another game that we like the art style of. Both Bad North and Thronefall have l
 
 ![bad north image2](GameDesignDocScreenshots/badNorth2.png) 
  
+### Plants vs. Zombies 
+
+We’re taking inspiration from the sun and sunflowers mechanic. We plan to have plants that generate income (your farm), and the monsters will first destroy those plans, causing you to lose income. However, you can lose those plants and it won’t be game over yet (much like how you can lose your sunflowers in PvZ without a game over). However, if you let your plants get eaten, you lose out on income.  
 
 ### Minecraft 
 
 One of our favorite parts of Minecraft was the farming- providing a peaceful, routine activity that integrated into the rest of the gameplay, yet has a different feel to some of the other activities players partake in. We are inspired by these mechanics, as well as some of the textures, designs, and properties of livestock and farming. 
 
 ![Minecraft Farming Image](https://images.surferseo.art/4d7c9bab-c8e4-427a-8b2f-b9d3147e24aa.png) 
-
-
-### Plants vs. Zombies 
-
-We’re taking inspiration from the sun and sunflowers mechanic. We plan to have plants that generate income (your farm), and the monsters will first destroy those plans, causing you to lose income. However, you can lose those plants and it won’t be game over yet (much like how you can lose your sunflowers in PvZ without a game over). However, if you let your plants get eaten, you lose out on income.  
 
 
 ## Gameplay 
@@ -79,7 +77,7 @@ We’re taking inspiration from the sun and sunflowers mechanic. We plan to have
     - The player will have the ability to place towers in different locations and of different types. 
 - Farming mechanic 
     - There are set planters and you decide what crop goes in them  
-    - crops give money after $$x$$ cycles 
+    - crops give money after $x$ cycles 
     - Longer = more money but more of an investment 
     - Plants automatically replant themselves, the player just decides what goes in them
 - Enemies
