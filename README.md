@@ -176,6 +176,7 @@ The spotlight from towers will point at the enemy it shoots at.
 ### Additions
 * Removed mouse from screen
 * The player has a flashlight
+* Towers have a spotlight that track the enemy they shoot at
 
 ## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
 FIXME @ Lucy @ Teddy @ Brady

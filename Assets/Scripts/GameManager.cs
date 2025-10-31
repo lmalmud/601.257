@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     public List<Enemy> enemies;
     public static GameManager instance;
     public UnityEvent onChanged;
-
     public Transform homeBase;
 
     [SerializeField] private Light sun;

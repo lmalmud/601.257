@@ -24,6 +24,16 @@ public class Sight : MonoBehaviour
     public Light spotlight;
     public float rotationSpeed = 360f;
 
+    void Start()
+    {
+        // if no explicit referencePoint assigned in the inspector,
+        // grab the homeBase from the GameManager
+        if (referencePoint == null && GameManager.instance != null)
+        {
+            referencePoint = GameManager.instance.homeBase;
+        }
+    }
+
     void Update()
     {
         // returns an array of colliders found within the sphere
