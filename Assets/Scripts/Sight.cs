@@ -17,9 +17,12 @@ public class Sight : MonoBehaviour
     public LayerMask objectsLayers; // the layer for things we can hit
     public LayerMask obstaclesLayers; // the layer for things to avoid
 
-    // Reference point (e.g., prefab instance) to measure closeness to.
-    // If null, falls back to this.transform.
+    // reference point to measure closeness to (the base)
     public Transform referencePoint;
+
+    // light to point at enemy
+    public Light spotlight;
+    public float rotationSpeed = 360f;
 
 
     void Update()
@@ -72,6 +75,39 @@ public class Sight : MonoBehaviour
 
             detectedObject = bestCollider;
 
+
+            // point the spotlight at the detected object (if assigned)
+            if (spotlight != null)
+            {
+                if (detectedObject != null)
+                {
+                    Vector3 targetPos = detectedObject.bounds.center;
+                    Vector3 dir = targetPos - spotlight.transform.position;
+
+                    if (dir.sqrMagnitude > Mathf.Epsilon)
+                    {
+                        Quaternion targetRot = Quaternion.LookRotation(dir.normalized, Vector3.up);
+
+                        if (rotationSpeed > 0f)
+                        {
+                            float t = Mathf.Min(1f, rotationSpeed * Time.deltaTime / 180f); // normalized step
+                            spotlight.transform.rotation = Quaternion.Slerp(spotlight.transform.rotation, targetRot, t);
+                        }
+                        else
+                        {
+                            spotlight.transform.rotation = targetRot;
+                        }
+                    }
+
+                    // enable the spotlight when target present
+                    if (!spotlight.enabled) spotlight.enabled = true;
+                }
+                else
+                {
+                    // no target: disable or keep as-is
+                    if (spotlight.enabled) spotlight.enabled = false;
+                }
+            }
         }
     }
 
