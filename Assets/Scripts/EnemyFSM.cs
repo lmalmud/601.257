@@ -74,6 +74,11 @@ public class EnemyFSM : MonoBehaviour
     {
         mySpawner = s;
     }
+
+    public WaveSpawner getSpawner()
+    {
+        return mySpawner;
+    }
     
     public void updateCheckpoint()
     {
