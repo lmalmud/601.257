@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy Fields")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private int life = 5;
+    [SerializeField] private Life life;
 
     private EnemyFSM fsm;
 
@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         fsm = GetComponentInChildren<EnemyFSM>();
+        life = GetComponent<Life>();
+
     }
 
     void Start()
@@ -33,12 +35,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.layer == bulletPrefab.layer)
         {
             
-            life--;
-
-            if (life <= 0)
-            {
-                Destroy(gameObject);
-            }
+            life.amount -= 25;
         }
         else if (other.gameObject.CompareTag("Checkpoint"))
         {

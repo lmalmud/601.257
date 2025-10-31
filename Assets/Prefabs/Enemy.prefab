@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 8792470595638286443}
   - component: {fileID: 4717338925374875243}
   - component: {fileID: 5807607575649424761}
+  - component: {fileID: -8122505296808550286}
+  - component: {fileID: 5019677673080718532}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -128,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
     type: 3}
-  life: 5
+  life: {fileID: -8122505296808550286}
 --- !u!135 &4717338925374875243
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -172,6 +174,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-8122505296808550286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646718853000293073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c067361ffd73d64d8736647f4883d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 100
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5019677673080718532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646718853000293073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc28fdaf88400342beb0df769811b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 3758655523970252120, guid: c99ae775ec939d6438031b5d00a0b5d3,
+    type: 3}
 --- !u!1001 &5782484411068555670
 PrefabInstance:
   m_ObjectHideFlags: 0
