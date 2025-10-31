@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Fields")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int life = 5;
+    [SerializeField] private ParticleSystem fireParticlePrefab;
 
     private EnemyFSM fsm;
 
@@ -32,8 +33,23 @@ public class Enemy : MonoBehaviour
         //check the collision is from a player bullet
         if (other.gameObject.layer == bulletPrefab.layer)
         {
-            
-            life--;
+            // ADDED BY LUCY 10/30
+            // try to read damage from the bullet; fall back to 1 if component missing
+            BulletDamage bd = other.gameObject.GetComponent<BulletDamage>();
+            int damage = (bd != null) ? bd.damage : 1;
+
+            life -= damage; // CHANGED BY LUCY 10/30
+            Destroy(other.gameObject); // destroy the bullet on hit
+
+            if (bd != null && bd.type == "fire" && fireParticlePrefab != null)
+            {
+                Instantiate(fireParticlePrefab, transform.position, Quaternion.identity, transform);
+            }
+
+            if (bd != null && bd.type == "water")
+            {
+                // apply water slow-down effect here @teddy I don't know how to do this
+            }
 
             if (life <= 0)
             {
@@ -52,3 +68,4 @@ public class Enemy : MonoBehaviour
     }
 
 }
+
