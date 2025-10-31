@@ -170,6 +170,9 @@ Fire tower deals a different amount of damage than the regular tower and applies
 Water tower has a different bullet trail and will apply a slowing effect to enemies. Note also that towers shoot at the enemy that is closest to the base.
 ![Water tower demo](Assets/readme_screenshots/water_tower_example.gif)
 
+The spotlight from towers will point at the enemy it shoots at.
+![Spotlight points at enemies](Assets/readme_screenshots/spotlight_example.gif)
+
 ### Additions
 * Removed mouse from screen
 * The player has a flashlight
