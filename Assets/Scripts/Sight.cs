@@ -17,7 +17,11 @@ public class Sight : MonoBehaviour
     public LayerMask objectsLayers; // the layer for things we can hit
     public LayerMask obstaclesLayers; // the layer for things to avoid
 
-    // Update is called once per frame
+    // Reference point (e.g., prefab instance) to measure closeness to.
+    // If null, falls back to this.transform.
+    public Transform referencePoint;
+
+
     void Update()
     {
         // returns an array of colliders found within the sphere
@@ -25,6 +29,10 @@ public class Sight : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, distance, objectsLayers);
 
         detectedObject = null;
+
+        // what is the object that is closest to the reference point?
+        float bestDist = Mathf.Infinity;
+        Collider bestCollider = null;
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -43,8 +51,16 @@ public class Sight : MonoBehaviour
                 {
 
                     //Debug.DrawLine(transform.position, collider.bounds.center, Color.green);
-                    detectedObject = collider;
-                    break;
+
+                    // compute distance to the configured reference point (or this.transform if null)
+                    Vector3 refPos = (referencePoint != null) ? referencePoint.position : transform.position;
+                    float distToRef = Vector3.Distance(refPos, collider.bounds.center);
+
+                    if (distToRef < bestDist)
+                    {
+                        bestDist = distToRef;
+                        bestCollider = collider;
+                    }
                 }
 
                 // if the line hits an obstacle, draw a line to it
@@ -53,6 +69,8 @@ public class Sight : MonoBehaviour
                     Debug.DrawLine(transform.position, hit.point, Color.red);
                 }
             }
+
+            detectedObject = bestCollider;
 
         }
     }

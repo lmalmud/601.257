@@ -99,7 +99,7 @@ One of our favorite parts of Minecraft was the farming- providing a peaceful, ro
 
 ## Development Plan 
 
-### Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
+## Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
 
 We first intend to implement the tower defense aspect of our game, layering on the farming components as time progresses. Before we have implemented the farming simulation aspect of the game (which is the mechanism that will enable players to get more and improved resources), we will include automatically allocated resources. This will allow for us to develop our game as though it were a regular tower defense, and later layer in the simulation aspect. 
 
@@ -128,6 +128,23 @@ Our goals for the first checkpoint will include:
     - We decided this would be for a different checkpoint
 - ~~Add day/night loop with lighting~~
   - ~~Add multiple rounds to each level~~
+
+Flowers that generate money. The texture is changed to show a transparent version as the player places the flowers.
+![Example of Flowers](Assets/readme_screenshots/flower_example.png)
+
+Different enemy prefabs- each spawns randomly. How cute!
+![Two enemy types](Assets/readme_screenshots/enemy_example.png)
+
+One of the tower variants with animated fire.
+![Tower](Assets/readme_screenshots/tower_example.png)
+
+An overhead view of the map renders in the top right corner.
+![Minimap preview](Assets/readme_screenshots/minimap.png)
+
+### Assets Added
+* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080)
+* FIXME @Teddy @Brady did you add other assets
+
 ### Additions
 - Basic UI
 - Tower preview for placement
@@ -135,7 +152,7 @@ Our goals for the first checkpoint will include:
 - Improved player movement and physics
 - You cannot body-block the enemies
 
-## Project Part 3: Visual Effects
+## Project Part 3: Visual Effects (Ch 11, 12, 13)
 - Incorporate decorations and better base assets from the separate scenes
 - Text on win/lose screen
 - Be able to pick tower
@@ -146,16 +163,14 @@ Our goals for the first checkpoint will include:
 - Add fire bullets that set enemies on fire
 - Effect on placing tower
 
-## Development
-### Project Part 2: 3D Scenes and Models
+Revamped base (no longer just a cube!)
+![Farm](Assets/readme_screenshots/farm.png)
 
-### Project 1-2 Checkpoint
-* You can see the available progress in the scene called ``Level1```
-* Use WASD to move, space to jump, and the mouse to look around
-* Press ```e``` to place a tower near a pedestal
-* The win condition is when all of the enemies are killed and you still have life (you will see a hot green screen)
-* The lose condition is if five enemies make it to the end of the path (don't place any towers to see the lose condition in action and you will see a red screen)
-* At this stage, we have passive income in the form of an initial money allocation.
+### Additions
+FIXME @ Lucy @ Teddy @ Brady
+
+## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
+FIXME @ Lucy @ Teddy @ Brady
 
 ## Instructions for Testing the Project
 * Play the ```Level 2``` scene
