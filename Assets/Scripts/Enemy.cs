@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /*
     Detects collisions of bullets with the enemy instance. 
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
             int damage = (bd != null) ? bd.damage : 1;
 
             life.amount -= damage; // CHANGED BY LUCY 10/30
+
             Destroy(other.gameObject); // destroy the bullet on hit
 
             if (bd != null && bd.type == "fire" && fireParticlePrefab != null)
@@ -53,10 +55,6 @@ public class Enemy : MonoBehaviour
                 // apply water slow-down effect here @teddy I don't know how to do this
             }
 
-            // if (life.amount <= 0)
-            // {
-            //     Destroy(gameObject);
-            // }
         }
         else if (other.gameObject.CompareTag("Checkpoint"))
         {

@@ -10,7 +10,7 @@ public class Life : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(amount);
+
         if (amount <= 0)
         {
             onDeath.Invoke(); //sends out the onDeath event message
