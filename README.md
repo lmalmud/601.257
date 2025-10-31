@@ -142,7 +142,8 @@ An overhead view of the map renders in the top right corner.
 ![Minimap preview](Assets/readme_screenshots/minimap.png)
 
 ### Assets Added
-* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080)
+* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080
+* [LowPoly Environment Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479)
 * FIXME @Teddy @Brady did you add other assets
 
 ### Additions
