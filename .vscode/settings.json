@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "semesterproject.sln"
+    "dotnet.defaultSolution": "601.257.sln"
 }

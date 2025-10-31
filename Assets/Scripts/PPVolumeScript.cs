@@ -26,6 +26,7 @@ public class PPVolumeScript : MonoBehaviour
         profile.TryGet<Vignette>(out vignette); //returns a bool depending of if the thing was found
         profile.TryGet<ChromaticAberration>(out chromAb);
 
+        volume.weight = 0;
     }
 
     void pulseWhenDamage()
@@ -47,5 +48,9 @@ public class PPVolumeScript : MonoBehaviour
             yield return null;
         }
         volume.weight = 0; //make sure the weight is fully 0 by the end of the fade out
+    }
+
+    void OnDestroy() {
+        volume.weight = 0; //make sure the effects go away when ending the scene
     }
 }
