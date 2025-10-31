@@ -154,15 +154,12 @@ An overhead view of the map renders in the top right corner.
 - You cannot body-block the enemies
 
 ## Project Part 3: Visual Effects (Ch 11, 12, 13)
-- Incorporate decorations and better base assets from the separate scenes
-- Text on win/lose screen
-- Be able to pick tower
+- ~~Incorporate decorations and better base assets from the separate scenes~~
 - ~~Towers aim to enemy that is closest to goal~~
-- You can place towers on the path, but they won't block the enemeies (we will add more restrictions on where towers can be placed)
 - ~~Add water tower variant~~
     - ~~Will slow down enemies and have particles~~
 - ~~Add fire bullets that set enemies on fire~~
-- Effect on placing tower
+- ~~Effect on placing tower~~
 
 Revamped base (no longer just a cube!)
 ![Farm](Assets/readme_screenshots/farm.png)
@@ -175,13 +172,24 @@ Water tower has a different bullet trail and will apply a slowing effect to enem
 
 ### Additions
 * Removed mouse from screen
+* The player has a flashlight
 
 ## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
 FIXME @ Lucy @ Teddy @ Brady
 
+* Footstep sound when walking
+* make rooster quieter
+* allow for the ability to select different tower types in game
+* you plant a plot of crops each time instead of a single one
+* animate flowers to be dynamic (wow so pretty)
+* highlight on UI for which "mode" you're in
+* tower sound effect (passive and active)
+* certain towers deal DOT
+* Text on win/lose screen
+
 ## Instructions for Testing the Project
-* Play the ```Level 2``` scene
-* Multiple tower variants exist, but you can only place one type because of UI reasons'
+* Play the ```Level 3``` scene
+* Multiple tower variants exist, but you can only place one type because of UI reasons
 * WASD to move around
 * Space to jump
 * 1, 2, 3 numbers to toggle between view mode, place tower, and place plant, respectively
@@ -190,3 +198,4 @@ FIXME @ Lucy @ Teddy @ Brady
     * You cannot place a tower if you do not have enough money
     * You get a $500 stipend every day
 * There are two waves of enemies i.e. two nights (one wave per night)
+* press `m` to get free money (we love a good tax loophole)
