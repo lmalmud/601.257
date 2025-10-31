@@ -379,8 +379,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   referencePoint: {fileID: 0}
-  spotlight: {fileID: 5420223559437001228, guid: 603a7b37db598467798a85bd43e633fe,
-    type: 3}
+  spotlight: {fileID: 5589237353676699593}
   rotationSpeed: 360
 --- !u!1 &1905357623264302134
 GameObject:
@@ -1651,6 +1650,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3270681683899927425}
     m_Modifications:
+    - target: {fileID: 5420223559437001228, guid: 603a7b37db598467798a85bd43e633fe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7328308603758640602, guid: 603a7b37db598467798a85bd43e633fe,
         type: 3}
       propertyPath: m_Name
@@ -1721,6 +1725,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 603a7b37db598467798a85bd43e633fe, type: 3}
+--- !u!108 &5589237353676699593 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5420223559437001228, guid: 603a7b37db598467798a85bd43e633fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 479762409054819781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8284402982518769542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8381315180788421187, guid: 603a7b37db598467798a85bd43e633fe,

@@ -131,6 +131,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1282324830377824846, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
     type: 3}
   life: {fileID: -8122505296808550286}
+  fireParticlePrefab: {fileID: 198703374472999380, guid: f584b4d5076829f4799f9d4dcf6de929,
+    type: 3}
 --- !u!135 &4717338925374875243
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 4687771272426878334, guid: 7e4e6f0b5239f23408c23132da581d4d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.8
+      value: -30.71
       objectReference: {fileID: 0}
     - target: {fileID: 4687771272426878334, guid: 7e4e6f0b5239f23408c23132da581d4d,
         type: 3}
@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 4687771272426878334, guid: 7e4e6f0b5239f23408c23132da581d4d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.714481
+      value: 20.33
       objectReference: {fileID: 0}
     - target: {fileID: 4687771272426878334, guid: 7e4e6f0b5239f23408c23132da581d4d,
         type: 3}
@@ -483,6 +483,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ef9e196c3b52e4a8a0e395cd2d38ae, type: 3}
+--- !u!108 &1239364845 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8265133079128595484, guid: 91962890857704e5bbf43ca5af52e13e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2117391892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1539092011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,6 +744,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2308180456453082076, guid: 91962890857704e5bbf43ca5af52e13e,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308180456453082076, guid: 91962890857704e5bbf43ca5af52e13e,
+        type: 3}
+      propertyPath: spotlight
+      value: 
+      objectReference: {fileID: 1239364845}
     - target: {fileID: 2308180456453082076, guid: 91962890857704e5bbf43ca5af52e13e,
         type: 3}
       propertyPath: referencePoint

@@ -24,6 +24,15 @@ public class Sight : MonoBehaviour
     public Light spotlight;
     public float rotationSpeed = 360f;
 
+    void Start()
+    {
+        // if no explicit referencePoint assigned in the inspector,
+        // grab the homeBase from the GameManager
+        if (referencePoint == null && GameManager.instance != null)
+        {
+            referencePoint = GameManager.instance.homeBase;
+        }
+    }
 
     void Update()
     {
@@ -72,41 +81,19 @@ public class Sight : MonoBehaviour
                     Debug.DrawLine(transform.position, hit.point, Color.red);
                 }
             }
+        }
 
-            detectedObject = bestCollider;
+        // finalize detected object after scanning all colliders
+        detectedObject = bestCollider;
 
-
-            // point the spotlight at the detected object (if assigned)
-            if (spotlight != null)
+        // point the spotlight at the detected object (if assigned)
+        if (spotlight != null)
+        {
+            if (detectedObject != null)
             {
-                if (detectedObject != null)
-                {
-                    Vector3 targetPos = detectedObject.bounds.center;
-                    Vector3 dir = targetPos - spotlight.transform.position;
 
-                    if (dir.sqrMagnitude > Mathf.Epsilon)
-                    {
-                        Quaternion targetRot = Quaternion.LookRotation(dir.normalized, Vector3.up);
+                spotlight.transform.LookAt(detectedObject.transform);
 
-                        if (rotationSpeed > 0f)
-                        {
-                            float t = Mathf.Min(1f, rotationSpeed * Time.deltaTime / 180f); // normalized step
-                            spotlight.transform.rotation = Quaternion.Slerp(spotlight.transform.rotation, targetRot, t);
-                        }
-                        else
-                        {
-                            spotlight.transform.rotation = targetRot;
-                        }
-                    }
-
-                    // enable the spotlight when target present
-                    if (!spotlight.enabled) spotlight.enabled = true;
-                }
-                else
-                {
-                    // no target: disable or keep as-is
-                    if (spotlight.enabled) spotlight.enabled = false;
-                }
             }
         }
     }
@@ -122,4 +109,5 @@ public class Sight : MonoBehaviour
         Vector3 leftDirection = Quaternion.Euler(0, -angle, 0) * transform.forward;
         Gizmos.DrawRay(transform.position, leftDirection * distance);
     }
+
 }
