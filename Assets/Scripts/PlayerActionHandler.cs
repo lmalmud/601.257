@@ -17,11 +17,13 @@ public class PlayerActionHandler : MonoBehaviour
     [SerializeField] private float distance = 10;
     [SerializeField] private LayerMask terrainLayer;
     [SerializeField] private GameObject wandEndPoint;
+    [SerializeField] private GameObject flashLight;
 
     [Header("Tower/plant placement")]
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private GameObject plantPrefab;
     [SerializeField] private PlayerStateController playerState;
+    
 
 
 
@@ -31,6 +33,8 @@ public class PlayerActionHandler : MonoBehaviour
     private Vector3 targetPlaceLocation;
     private GameObject preview;
     private GameManager gm;
+
+    private bool lightOn = true;
     
     
     // Start is called before the first frame update
@@ -43,6 +47,16 @@ public class PlayerActionHandler : MonoBehaviour
             Debug.Log("TowerInteract::Start(): GameManager is null");
         }
     }
+
+
+    void OnGiveMoney()
+    {
+        gm.giveStipend();
+    }
+    
+    
+    
+    
     void getLookLocation()
     {
         Vector3 gaze = mainCam.transform.forward;
@@ -71,11 +85,32 @@ public class PlayerActionHandler : MonoBehaviour
         // Debug.Log("post: " + towerPlaceTarget.y);
     }
 
+    void OnToggleFlashlight()
+    {
+        if (playerState.getState() != PlayerStateController.PlayerState.ViewMode) return;
+        
+        setFlashLight(!lightOn);
+    }
+
+    void setFlashLight(bool status)
+    {
+        lightOn = status;
+        if (status)
+        {
+            flashLight.GetComponent<Light>().intensity = 60;
+        }
+        else
+        {
+            flashLight.GetComponent<Light>().intensity = 0;
+        }
+    }
+
 
     void OnViewMode()
     {
         if (playerState.getState() != PlayerStateController.PlayerState.ViewMode)
         {
+            setFlashLight(true);
             Destroy(preview);
             playerState.setState(PlayerStateController.PlayerState.ViewMode);
         }
@@ -85,6 +120,7 @@ public class PlayerActionHandler : MonoBehaviour
     {
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
+            setFlashLight(false);
             setPreview(towerPrefab);
             preview.GetComponent<TowerAttack>().setIsPlaced(false);
             playerState.setState(PlayerStateController.PlayerState.BuildMode);
@@ -102,6 +138,7 @@ public class PlayerActionHandler : MonoBehaviour
     {
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
+            setFlashLight(false);
             setPreview(plantPrefab);
             playerState.setState(PlayerStateController.PlayerState.PlantMode);
         }
@@ -148,7 +185,9 @@ public class PlayerActionHandler : MonoBehaviour
             return;
         }
         //TODO: change this to co routine w/ LERPs
-        preview.GetComponent<PlaceableMaterialManager>().setMaterial(1);
+        PlaceableMaterialManager towerPlaceEffects = preview.GetComponent<PlaceableMaterialManager>();
+        towerPlaceEffects.setMaterial(1);
+        towerPlaceEffects.playPlaceParticle();
         setOpacity(preview, 1);
 		preview.GetComponent<Collider>().isTrigger = false;
 		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)

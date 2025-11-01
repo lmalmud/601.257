@@ -34,10 +34,13 @@ public class PlayerMovement : MonoBehaviour
     
     //variables for keeping stack of the player's current state
     private float rotationY = 0F;
+    private float rotationX = 0F;
     private Vector3 movementDir;
     private Vector3 scaledMovement;
     private Rigidbody playerRb;
     private bool isGrounded = true;
+    private bool rotationFrozen = false;
+    
 
     
     void OnMove(InputValue value)
@@ -45,13 +48,21 @@ public class PlayerMovement : MonoBehaviour
         Vector2 input = value.Get<Vector2>();
         movementDir = new Vector3(input.x, 0, input.y);
         movementDir = Vector3.ClampMagnitude(movementDir, 1f);
-        Debug.Log(movementDir);
+        // Debug.Log(movementDir);
+    }
+
+    void OnFreezeRotation()
+    {
+        rotationFrozen = !rotationFrozen;
     }
 
     
     
-    public void OnLook(InputValue value){
-        float rotationX = transform.localEulerAngles.y + value.Get<Vector2>().x * sensitivityX;
+    public void OnLook(InputValue value)
+    {
+        if (rotationFrozen) return;
+        
+        rotationX = transform.localEulerAngles.y + value.Get<Vector2>().x * sensitivityX;
 
         rotationY += value.Get<Vector2>().y * sensitivityY;
         rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);

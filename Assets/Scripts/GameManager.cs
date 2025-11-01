@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         checkWinCondition();
     }
     
-    private void giveStipend()
+    public void giveStipend()
     {
         changeMoney(500);
     }

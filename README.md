@@ -142,9 +142,11 @@ An overhead view of the map renders in the top right corner.
 ![Minimap preview](Assets/readme_screenshots/minimap.png)
 
 ### Assets Added
-* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080
+* [Forest - Low Poly Toon Battle Arena / Tower Defense Pack](https://assetstore.unity.com/packages/3d/environments/forest-low-poly-toon-battle-arena-tower-defense-pack-100080)
 * [LowPoly Environment Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479)
-* FIXME @Teddy @Brady did you add other assets
+* [Character model](https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-survival-character-rio-273074)
+* [Pandazole - Lowpoly Asset Bundle](https://assetstore.unity.com/packages/3d/props/pandazole-lowpoly-asset-bundle-226938)
+* [skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014)
 
 ### Additions
 - Basic UI
@@ -153,13 +155,15 @@ An overhead view of the map renders in the top right corner.
 - Improved player movement and physics
 - You cannot body-block the enemies
 
+
 ## Project Part 3: Visual Effects (Ch 11, 12, 13)
-- ~~Incorporate decorations and better base assets from the separate scenes~~
-- ~~Towers aim to enemy that is closest to goal~~
-- ~~Add water tower variant~~
-    - ~~Will slow down enemies and have particles~~
-- ~~Add fire bullets that set enemies on fire~~
-- ~~Effect on placing tower~~
+* ~~Incorporate decorations and better base assets from the separate scenes~~
+* ~~Towers aim to enemy that is closest to goal~~
+* ~~Add water tower variant~~
+    * ~~Will slow down enemies and have particles~~
+* ~~Add fire bullets that set enemies on fire~~
+* ~~Effect on placing tower~~
+* ~~Post processing effects (passive and when damage taken)~~
 
 Revamped base (no longer just a cube!)
 ![Farm](Assets/readme_screenshots/farm.png)
@@ -177,9 +181,9 @@ The spotlight from towers will point at the enemy it shoots at.
 * Removed mouse from screen
 * The player has a flashlight
 * Towers have a spotlight that track the enemy they shoot at
+* Debug/testing controlled
 
 ## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
-FIXME @ Lucy @ Teddy @ Brady
 
 * Footstep sound when walking
 * make rooster quieter
@@ -203,3 +207,6 @@ FIXME @ Lucy @ Teddy @ Brady
     * You get a $500 stipend every day
 * There are two waves of enemies i.e. two nights (one wave per night)
 * press `m` to get free money (we love a good tax loophole)
+* press `r` to freeze rotation
+* press `esc` to rematerialize the cursor
+* right click the mouse to toggle the flashlight in view mode
