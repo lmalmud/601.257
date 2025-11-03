@@ -32,7 +32,7 @@ public class PPVolumeScript : MonoBehaviour
     void pulseWhenDamage()
     {
         Debug.Log("pulse when damage");
-        vignette.intensity.Override(0.5f);
+        vignette.intensity.Override(1.0f);
         chromAb.intensity.Override(1.0f);
 
         StartCoroutine(fadeEffects(2f));
