@@ -195,6 +195,11 @@ The spotlight from towers will point at the enemy it shoots at.
 * certain towers deal DOT
 * Text on win/lose screen
 
+* Add [ambient music](https://assetstore.unity.com/packages/audio/music/free-10-medieval-ambient-fantasy-tracks-music-pack-310781)
+* Added [shooting sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096) to bullets
+* Animated the flowers so they sway in the wind
+* Added a physical [spotlight](https://assetstore.unity.com/packages/3d/props/interior/spotlight-and-structure-141453) that rotates where the light points
+
 ## Instructions for Testing the Project
 * Play the ```Level 3``` scene
 * Multiple tower variants exist, but you can only place one type because of UI reasons

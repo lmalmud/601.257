@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7712585005093651128}
   - component: {fileID: 5765124023894460076}
   - component: {fileID: 3213061243018584791}
+  - component: {fileID: 7902451118337003996}
   m_Layer: 10
   m_Name: plant1
   m_TagString: Untagged
@@ -173,3 +174,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewMaterial: {fileID: 2100000, guid: 418ef80c34b2c01fea0d1f04f74523fd, type: 2}
   placedMaterial: {fileID: 2100000, guid: b248c2d18c7fbe50c83ae93936426fb7, type: 2}
+  placeEffect: {fileID: 0}
+--- !u!114 &7902451118337003996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645382521673259681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad72a478de86a48e3871a0cecae0360a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swaySpeed: 1
+  swayAmount: 10
