@@ -195,6 +195,8 @@ The spotlight from towers will point at the enemy it shoots at.
 * certain towers deal DOT
 * Text on win/lose screen
 
+* Add [ambient music](https://assetstore.unity.com/packages/audio/music/free-10-medieval-ambient-fantasy-tracks-music-pack-310781)
+
 ## Instructions for Testing the Project
 * Play the ```Level 3``` scene
 * Multiple tower variants exist, but you can only place one type because of UI reasons
