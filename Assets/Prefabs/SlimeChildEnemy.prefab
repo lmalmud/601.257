@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeChildEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 9193643603155958051, guid: 938eb31626906b44d85410a616c09136,
+        type: 3}
+      propertyPath: amount
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2508758204322588198, guid: 938eb31626906b44d85410a616c09136, type: 3}
     m_RemovedGameObjects: []

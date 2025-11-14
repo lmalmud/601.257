@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 /*
     Detects collisions of bullets with the enemy instance. 
@@ -17,13 +18,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ParticleSystem fireParticlePrefab;
 
     private EnemyFSM fsm;
+    private Animator animator;
+    
 
 
     void Awake()
     {
         fsm = GetComponentInChildren<EnemyFSM>();
         life = GetComponent<Life>();
+        animator = GetComponentInChildren<Animator>();
+        animator.SetFloat("Health", life.amount);
 
+        var endPointDetector = GameObject.Find("EndPoint").GetComponent<EndPointDetection>();
+        endPointDetector.onReachEnd.AddListener(endPointAnim);
     }
 
     void Start()
@@ -42,6 +49,9 @@ public class Enemy : MonoBehaviour
             int damage = (bd != null) ? bd.damage : 1;
 
             life.amount -= damage; // CHANGED BY LUCY 10/30
+            animator.SetFloat("Health", life.amount);
+
+            animator.SetTrigger("IsHit");
 
             Destroy(other.gameObject); // destroy the bullet on hit
 
@@ -52,7 +62,7 @@ public class Enemy : MonoBehaviour
 
             if (bd != null && bd.type == "water")
             {
-                // apply water slow-down effect here @teddy I don't know how to do this
+                this.GetComponent<NavMeshAgent>().speed = (float)this.GetComponent<NavMeshAgent>().speed / 2;
             }
 
         }
@@ -60,6 +70,11 @@ public class Enemy : MonoBehaviour
         {
             fsm.updateCheckpoint();
         }
+    }
+
+    void endPointAnim()
+    {
+        animator.SetBool("IsAtEndpoint", true); 
     }
 
     void OnDestroy() //later dont do this on destory make some event

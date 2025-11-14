@@ -19,12 +19,12 @@ public class EnemyFSM : MonoBehaviour
     [SerializeField] private float enemyAttackDistance = 2f;
     [SerializeField] private Transform baseTnfm;
     [SerializeField] private WaveSpawner mySpawner; //the wave spawner that spawned this enemy in
-    [SerializeField] private int checkpointIndex = -1; //index in checkpoint array this enemy just passed
+    [SerializeField] public int checkpointIndex; //index in checkpoint array this enemy just passed
     //starts at negative one so updateCheckpoint() can be used in awake
     [SerializeField] private Transform nextCheckpoint; //the checkpoint this enemy should be headed towards
 
     private NavMeshAgent agent;
-
+    
     void Awake()
     {
         baseTnfm = GameObject.Find("House").transform;
@@ -79,13 +79,23 @@ public class EnemyFSM : MonoBehaviour
     {
         return mySpawner;
     }
-    
+
     public void updateCheckpoint()
     {
         //when a checkpoint along the path is reached, get the next checkpoint along the path
         //then increment the checkpoint index
         nextCheckpoint = mySpawner.getNextCheckpoint(checkpointIndex);
         checkpointIndex++;
-        
+
+    }
+
+    public void setNextCheckpoint(Transform next)
+    {
+        nextCheckpoint = next;
+    }
+    
+    public Transform getNextCheckpoint()
+    {
+        return nextCheckpoint;
     }
 }

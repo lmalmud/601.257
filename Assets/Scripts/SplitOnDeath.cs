@@ -24,7 +24,17 @@ public class SplitOnDeath : MonoBehaviour
         EnemyFSM e2 = childObj2.GetComponentInChildren<EnemyFSM>();
 
         //children still need to be associated to a spawner!
-        e1.setSpawner( this.GetComponentInChildren<EnemyFSM>().getSpawner() );
-        e2.setSpawner( this.GetComponentInChildren<EnemyFSM>().getSpawner() );
+        e1.setSpawner( this.GetComponentInChildren<EnemyFSM>().getSpawner()) ;
+        e2.setSpawner(this.GetComponentInChildren<EnemyFSM>().getSpawner());
+
+        
+        
+        //TODO they still go backwards! fix it!!
+        //otherwise they go backwards to the first checkpoint
+        e1.setNextCheckpoint(this.GetComponentInChildren<EnemyFSM>().getNextCheckpoint());
+        e2.setNextCheckpoint(this.GetComponentInChildren<EnemyFSM>().getNextCheckpoint());
+
+        //e1.updateCheckpoint();
+        //e2.updateCheckpoint();
     }
 }
