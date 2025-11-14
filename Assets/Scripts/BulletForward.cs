@@ -31,7 +31,7 @@ public class BulletForward : MonoBehaviour
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision) // play sound when enemy is hit
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
