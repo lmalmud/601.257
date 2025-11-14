@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviour
     
     public AudioController audioController;
 
+    [SerializeField] private activatePanel losePanel;
+    private bool losePanelActive;
+    [SerializeField] private activatePanel winPanel;
+
     void Awake()
     {
         //no duplicate game managers!
@@ -71,6 +75,8 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("toggleDayNight", 0, dayLength);
         
         onDayStart.AddListener(giveStipend); 
+
+        losePanelActive = false;
     }
 
     void Update()
@@ -79,8 +85,13 @@ public class GameManager : MonoBehaviour
         {
             //onDeath.Invoke(); //sends out the onDeath event message
             //Destroy(gameObject);
-            SceneManager.LoadScene("LoseScene");
 
+            if (!losePanelActive)
+            {
+                losePanel.activateThisPanel();
+                losePanelActive = true;
+            }
+            
         }
     }
 
@@ -113,11 +124,11 @@ public class GameManager : MonoBehaviour
 
         if (life <= 0)
         {
-            SceneManager.LoadScene("LoseScene");
+            losePanel.activateThisPanel();
         }
         else if (enemies.Count <= 0 && waves.Count <= 0)
         {
-            SceneManager.LoadScene("WinScene");
+            winPanel.activateThisPanel();
         }
     }
 
