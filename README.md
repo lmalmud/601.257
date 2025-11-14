@@ -196,6 +196,7 @@ The spotlight from towers will point at the enemy it shoots at.
 * Text on win/lose screen
 
 * Add [ambient music](https://assetstore.unity.com/packages/audio/music/free-10-medieval-ambient-fantasy-tracks-music-pack-310781)
+* Added [shooting sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096) to bullets
 
 ## Instructions for Testing the Project
 * Play the ```Level 3``` scene
