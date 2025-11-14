@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Lucy Malmud
+    Date Created: 11/14/25
+    Date Last Updated: 11/14/25
+    Summary: Makes flower sway in wind
+*/
+
 public class FlowerSway : MonoBehaviour
 {
     public float swaySpeed = 1f; // how fast it sways

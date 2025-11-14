@@ -184,21 +184,35 @@ The spotlight from towers will point at the enemy it shoots at.
 * Debug/testing controlled
 
 ## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
+* ~~Text on win/lose screen improved~~
+* ~~Added UI element for day/night~~
+* ~~Added tower range as a light~~
+* ~~Add [ambient music](https://assetstore.unity.com/packages/audio/music/free-10-medieval-ambient-fantasy-tracks-music-pack-310781)~~
+* ~~Added [shooting sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096) to bullets~~
+* ~~Animated the flowers so they sway in the wind~~
+* ~~Added a physical cylinder that rotates where the light points on each tower~~
+* ~~Added animations to the enemies~~
 
+Our flowers now float in the wind.
+![Flower swaying](Assets/readme_screenshots/FlowerSway.gif)
+
+You'll see a small spotlight on the top of the tower that rotates as the light that aims at the enemies moves.
+![Tower spotlight](Assets/readme_screenshots/SpotlightRotation.gif)
+
+### Additions
+* Ability to restart game for win/lose
+* New UI assets! Hand-designed by Teddy :)
+* Make rooster quieter
+
+## Project Part 4: Finishing Touches
+* Clean up so it runs faster (i.e. streamline Update functions)
+* Remove uneeded assets
 * Footstep sound when walking
-* make rooster quieter
-* allow for the ability to select different tower types in game
-* you plant a plot of crops each time instead of a single one
-* animate flowers to be dynamic (wow so pretty)
-* highlight on UI for which "mode" you're in
-* tower sound effect (passive and active)
-* certain towers deal DOT
-* Text on win/lose screen
-
-* Add [ambient music](https://assetstore.unity.com/packages/audio/music/free-10-medieval-ambient-fantasy-tracks-music-pack-310781)
-* Added [shooting sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096) to bullets
-* Animated the flowers so they sway in the wind
-* Added a physical [spotlight](https://assetstore.unity.com/packages/3d/props/interior/spotlight-and-structure-141453) that rotates where the light points
+* Switch between music for day/night
+* Allow for the ability to select different tower types in game
+* You plant a plot of crops each time instead of a single one
+* Start screen
+* Certain towers deal DOT: fire tower will deal damage over time
 
 ## Instructions for Testing the Project
 * Play the ```Level 3``` scene
@@ -211,7 +225,8 @@ The spotlight from towers will point at the enemy it shoots at.
     * You cannot place a tower if you do not have enough money
     * You get a $500 stipend every day
 * There are two waves of enemies i.e. two nights (one wave per night)
-* press `m` to get free money (we love a good tax loophole)
-* press `r` to freeze rotation
-* press `esc` to rematerialize the cursor
-* right click the mouse to toggle the flashlight in view mode
+* Press `m` to get free money (we love a good tax loophole)
+* Press `r` to freeze rotation
+* Press `esc` to rematerialize the cursor
+* Right click the mouse to toggle the flashlight in view mode
+* Press `o` to toggle tower range visibility
