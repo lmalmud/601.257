@@ -88,12 +88,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        rotationFrozen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         isGrounded = CheckIsGrounded();
+
+        if(GameObject.Find("LoseScreen") != null || GameObject.Find("WinScreen") != null)
+        {
+            rotationFrozen = true;
+        }
         
     }
 

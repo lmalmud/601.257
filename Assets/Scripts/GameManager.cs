@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     
     public AudioController audioController;
 
+    [SerializeField] private activatePanel losePanel;
+    private bool losePanelActive;
+    [SerializeField] private activatePanel winPanel;
+
     void Awake()
     {
         //no duplicate game managers!
@@ -72,6 +76,11 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("toggleDayNight", 0, dayLength);
         
         onDayStart.AddListener(giveStipend); 
+
+        losePanelActive = false;
+
+        losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
+        winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
     }
 
     void Update()
@@ -80,8 +89,13 @@ public class GameManager : MonoBehaviour
         {
             //onDeath.Invoke(); //sends out the onDeath event message
             //Destroy(gameObject);
-            SceneManager.LoadScene("LoseScene");
 
+            if (!losePanelActive)
+            {
+                losePanel.activateThisPanel();
+                losePanelActive = true;
+            }
+            
         }
     }
 
@@ -112,13 +126,13 @@ public class GameManager : MonoBehaviour
     private void checkWinCondition()
     {
 
-        if (life <= 0)
+        if (life <= 0 && losePanel != null)
         {
-            SceneManager.LoadScene("LoseScene");
+            losePanel.activateThisPanel();
         }
-        else if (enemies.Count <= 0 && waves.Count <= 0)
+        else if (enemies.Count <= 0 && waves.Count <= 0 && winPanel != null)
         {
-            SceneManager.LoadScene("WinScene");
+            winPanel.activateThisPanel();
         }
     }
 
@@ -180,9 +194,8 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    void OnDestroy()
+    public void RestartGame()
     {
-        //var endPointDetector = GetComponent<EndPointDetection>();
-        //endPointDetector.onReachEnd.RemoveListener(loseLife);
+        SceneManager.LoadScene("Level3");
     }
 }
