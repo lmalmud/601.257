@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /*
     Manages global game quatities: 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     public Transform homeBase;
 
     [SerializeField] private Light sun;
-
+    public Image clockBackground;
     private bool isDay;
 
     //length of a day in seconds
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
     private void rotateSun()
     {
         sun.transform.Rotate(new Vector3(sunRotateFraction, 0, 0));
+        clockBackground.transform.Rotate(new Vector3(0,0,-sunRotateFraction));
     }
 
     private void toggleDayNight()
