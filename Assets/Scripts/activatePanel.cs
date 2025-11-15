@@ -9,6 +9,7 @@ public class activatePanel : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
+        Cursor.visible = false;
         panel = this.gameObject;
     }
     
@@ -18,6 +19,7 @@ public class activatePanel : MonoBehaviour
         if (panel != null)
         {
             panel.SetActive(true);
+            Cursor.visible = true;
             Time.timeScale = 0;
         }
     }
