@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 38179537}
   - component: {fileID: 38179539}
   - component: {fileID: 38179538}
+  - component: {fileID: 38179540}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -478,6 +479,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38179536}
   m_CullTransparentMesh: 1
+--- !u!114 &38179540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38179536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2bfb9e471c3c746b5b6c099f09e139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  spritesList:
+  - {fileID: 21300000, guid: 8e4c5ec6cce49ff43b173100590397a6, type: 3}
+  - {fileID: 21300000, guid: 46a91bee92ab8084a83ef0f3afa5030e, type: 3}
+  - {fileID: 21300000, guid: b5d4044db62556947865ec0f272c2af3, type: 3}
+  - {fileID: 21300000, guid: 992992c5040ae92448fee2dad893da16, type: 3}
+  - {fileID: 21300000, guid: 5e92e79b708af8045a0345152343173c, type: 3}
+  - {fileID: 21300000, guid: b8bce79a119e9404190bf9a01918e135, type: 3}
 --- !u!1001 &41888405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -890,7 +911,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 64709944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 668326710}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &64709944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,9 +1906,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
+      propertyPath: winPanel
+      value: 
+      objectReference: {fileID: 411045989}
+    - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+        type: 3}
       propertyPath: losePanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1666207837}
     - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
       propertyPath: audioController
@@ -3794,7 +3832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 402881392}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 668326710}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &402881392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6360,6 +6410,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4d5ce397d99442c5abea7eb2eb64fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &668326710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 164680524}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668326707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a421d998e921b5240a819aaf7459bd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &676778954 stripped
@@ -16112,7 +16174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1666207834
 RectTransform:
   m_ObjectHideFlags: 0

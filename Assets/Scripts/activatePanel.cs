@@ -5,17 +5,20 @@ using UnityEngine;
 public class activatePanel : MonoBehaviour
 {
     public GameObject panel;
-    
-    void Awake()
+
+    void Start()
     {
         panel.SetActive(false);
+        panel = this.gameObject;
     }
     
 
     public void activateThisPanel()
     {
-        
-        panel.SetActive(true);
-        Time.timeScale = 0;
+        if (panel != null)
+        {
+            panel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

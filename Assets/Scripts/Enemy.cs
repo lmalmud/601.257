@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
 
         var endPointDetector = GameObject.Find("EndPoint").GetComponent<EndPointDetection>();
         endPointDetector.onReachEnd.AddListener(endPointAnim);
+        life.onDeath.AddListener(death);
     }
 
     void Start()
@@ -77,7 +78,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsAtEndpoint", true); 
     }
 
-    void OnDestroy() //later dont do this on destory make some event
+    void death()
     {
         GameManager.instance.removeEnemy(this);
     }
