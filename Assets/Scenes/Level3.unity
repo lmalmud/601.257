@@ -1916,6 +1916,11 @@ PrefabInstance:
       objectReference: {fileID: 411045989}
     - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
+      propertyPath: dayLength
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+        type: 3}
       propertyPath: losePanel
       value: 
       objectReference: {fileID: 1666207837}
