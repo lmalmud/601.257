@@ -77,6 +77,11 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsAtEndpoint", true); 
     }
 
+    public void kill()
+    {
+        life.amount = 0;
+    }
+
     void OnDestroy() //later dont do this on destory make some event
     {
         GameManager.instance.removeEnemy(this);
