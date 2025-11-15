@@ -14,7 +14,7 @@ public class EndPointDetection : MonoBehaviour
         {
             onReachEnd.Invoke();
 
-            Destroy(other.gameObject);
+            // Destroy(other.gameObject);
         }
 
         

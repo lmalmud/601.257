@@ -24,6 +24,8 @@ public class EnemyFSM : MonoBehaviour
     [SerializeField] private Transform nextCheckpoint; //the checkpoint this enemy should be headed towards
 
     private NavMeshAgent agent;
+    [SerializeField] Animator animator;
+
     
     void Awake()
     {
@@ -68,6 +70,8 @@ public class EnemyFSM : MonoBehaviour
     void AttackHouse()
     {
         agent.isStopped = true;
+        gameObject.GetComponentInParent<SphereCollider>().enabled = false;
+        animator.SetBool("IsAtEndpoint", true);
     }
 
     public void setSpawner(WaveSpawner s)

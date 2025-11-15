@@ -56,7 +56,8 @@ MonoBehaviour:
       m_Calls: []
   homeBase: {fileID: 0}
   sun: {fileID: 636023443036599304}
-  dayLength: 60
+  clockBackground: {fileID: 0}
+  dayLength: 10
   sunRotateTicksPerSecond: 4
   onHealthChange:
     m_PersistentCalls:
@@ -71,6 +72,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioController: {fileID: 0}
+  losePanel: {fileID: 0}
+  winPanel: {fileID: 0}
 --- !u!114 &6444538268814539837
 MonoBehaviour:
   m_ObjectHideFlags: 0

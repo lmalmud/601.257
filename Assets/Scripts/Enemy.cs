@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("Health", life.amount);
 
         var endPointDetector = GameObject.Find("EndPoint").GetComponent<EndPointDetection>();
-        endPointDetector.onReachEnd.AddListener(endPointAnim);
+        // endPointDetector.onReachEnd.AddListener(endPointAnim);
         life.onDeath.AddListener(death);
     }
 
@@ -76,11 +76,6 @@ public class Enemy : MonoBehaviour
     void endPointAnim()
     {
         animator.SetBool("IsAtEndpoint", true); 
-    }
-
-    public void kill()
-    {
-        life.amount = 0;
     }
 
     void death()
