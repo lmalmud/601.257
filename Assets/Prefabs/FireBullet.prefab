@@ -103,11 +103,6 @@ PrefabInstance:
       propertyPath: type
       value: fire
       objectReference: {fileID: 0}
-    - target: {fileID: 6394402271482394709, guid: 203d3c8e259d746d6a36f37c6f21bbc1,
-        type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
