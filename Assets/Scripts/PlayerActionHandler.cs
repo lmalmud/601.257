@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 /*
     Author: Brady Bock
     Date Created: 10/1/25
@@ -47,14 +49,6 @@ public class PlayerActionHandler : MonoBehaviour
             Debug.Log("TowerInteract::Start(): GameManager is null");
         }
     }
-
-
-    void OnGiveMoney()
-    {
-        gm.giveStipend();
-    }
-    
-    
     
     
     void getLookLocation()
@@ -85,8 +79,12 @@ public class PlayerActionHandler : MonoBehaviour
         // Debug.Log("post: " + towerPlaceTarget.y);
     }
 
-    void OnToggleFlashlight()
+    public void OnToggleFlashlight(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
         if (playerState.getState() != PlayerStateController.PlayerState.ViewMode) return;
         
         setFlashLight(!lightOn);
@@ -106,8 +104,12 @@ public class PlayerActionHandler : MonoBehaviour
     }
 
 
-    void OnViewMode()
+    public void OnViewMode(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
         if (playerState.getState() != PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(true);
@@ -116,8 +118,12 @@ public class PlayerActionHandler : MonoBehaviour
         }
     }
 
-    void OnBuildMode()
+    public void OnBuildMode(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(false);
@@ -134,8 +140,13 @@ public class PlayerActionHandler : MonoBehaviour
         }
     }
 
-    void OnPlantMode()
+    public void OnPlantMode(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
+
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(false);
@@ -175,8 +186,13 @@ public class PlayerActionHandler : MonoBehaviour
     
     
     
-    void OnPlace()
-    {
+    public void OnPlace(InputAction.CallbackContext context)
+    { 
+        if(!context.performed)
+        {
+            return;
+        }
+
         if (preview == null) return;
         if (!placementValid())
         {

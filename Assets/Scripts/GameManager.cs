@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 /*
     Manages global game quatities: 
@@ -191,6 +192,15 @@ public class GameManager : MonoBehaviour
     {
         money += m;
         onMoneyChange.Invoke();
+    }
+
+    public void OnGiveMoney(InputAction.CallbackContext context)
+    {
+        if(!context.performed)
+        {
+            return;
+        }
+        giveStipend();
     }
 
     public bool spendMoney(int cost)
