@@ -42,41 +42,61 @@ public class PlayerMovement : MonoBehaviour
     private bool rotationFrozen = false;
     
 
-    
-    void OnMove(InputValue value)
+    // public void OnMove(InputAction.CallbackContext context)
+    // {
+    //     Debug.Log(context.ReadValue<Vector2>());
+    // }
+
+    public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 input = value.Get<Vector2>();
+        if(!context.performed)
+        {
+            movementDir = Vector3.zero;
+            return;
+        }
+        Vector2 input = context.ReadValue<Vector2>();
         movementDir = new Vector3(input.x, 0, input.y);
         movementDir = Vector3.ClampMagnitude(movementDir, 1f);
         // Debug.Log(movementDir);
     }
 
-    void OnFreezeRotation()
+    public void OnFreezeRotation(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
         rotationFrozen = !rotationFrozen;
     }
 
     
     
-    public void OnLook(InputValue value)
+    public void OnLook(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
         if (rotationFrozen) return;
         
-        rotationX = transform.localEulerAngles.y + value.Get<Vector2>().x * sensitivityX;
-
-        rotationY += value.Get<Vector2>().y * sensitivityY;
-        rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
         
+        rotationX = transform.localEulerAngles.y + context.ReadValue<Vector2>().x * sensitivityX;
+        rotationY += context.ReadValue<Vector2>().y * sensitivityY;
+        rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
         //side-to-side rotations moves entire body
         transform.localEulerAngles = new Vector3(0, rotationX, 0);
         //up and down rotation just moves "eyes" -> camera
         playerEye.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
-       
 
     }
 
-    void OnJump(InputValue value)
+    public void OnJump(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+        {
+            return;
+        }
+
         if (isGrounded)
         {
             playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
@@ -100,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rotationFrozen = true;
         }
-        
+
     }
 
     private void FixedUpdate()
