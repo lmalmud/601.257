@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Teddy Starynski
+    Date Created: 10/22/25
+    Last Edited: 10/22/25
+    Causes the slime enemy to split up on death and create two mini slimes.
+
+*/
+
 public class SplitOnDeath : MonoBehaviour
 {
     //public bool isChild = false;

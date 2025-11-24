@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /*
+    Author: Teddy Starynski
+    Date Created: 9/27/25
+    Last Edited: 11/24/25
     State Machine for the enemy behavior.
     Two states as of 10/11: FollowPath and AttackHouse
     uses a NavMeshAgent on the path to track the base and travel to it.

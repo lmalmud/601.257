@@ -5,6 +5,14 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Events;
 
+/*
+    Author: Teddy Starynski
+    Date Created: 10/22/25
+    Last Edited: 10/22/25
+    Controls the Post Processing effects when damage is taken.
+
+*/
+
 public class PPVolumeScript : MonoBehaviour
 {
 

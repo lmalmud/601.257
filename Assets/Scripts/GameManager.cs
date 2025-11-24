@@ -79,8 +79,15 @@ public class GameManager : MonoBehaviour
 
         losePanelActive = false;
 
+    }
+
+    void Start()
+    {
         losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
         winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
+
+        losePanel.deactivateThisPanel();
+        winPanel.deactivateThisPanel();
     }
 
     void Update()
@@ -197,6 +204,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

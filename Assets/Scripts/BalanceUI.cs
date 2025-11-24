@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+    Author: Teddy Starynski
+    Date Created: 11/13/25
+    Last Edited: 11/13/25
+    Controls the UI which shows the player how much money they have.
+
+*/
+
 public class BalanceUI : MonoBehaviour
 {
     TMP_Text text;
@@ -18,10 +26,6 @@ public class BalanceUI : MonoBehaviour
         text.text = "$ " + GameManager.instance.getMoney();
     }
 
-    // void changeBalance()
-    // {
-    //     text.text = "$ " + GameManager.instance.getMoney();
-    // }
 
     void Update()
     {

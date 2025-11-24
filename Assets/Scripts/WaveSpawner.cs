@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
+    Author: Teddy Starynski
+    Date Created: 9/27/25
+    Last Edited:  9/27/25
     Spawns in a wave of enemies based on the given start time, end time, and spawn rate.
 */
 

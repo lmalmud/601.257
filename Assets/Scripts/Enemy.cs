@@ -5,6 +5,9 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 
 /*
+    Author: Teddy Starynski
+    Date Created: 9/27/25
+    Last Edited: 11/24/25
     Detects collisions of bullets with the enemy instance. 
     Adds and removes enemy instances from the game manager.
 */
