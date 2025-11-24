@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 /*
     Author: Brady Bock
     Date Created: 10/1/25
@@ -51,7 +49,10 @@ public class PlayerActionHandler : MonoBehaviour
     }
 
 
-
+    void OnGiveMoney()
+    {
+        gm.giveStipend();
+    }
     
     
     
@@ -84,12 +85,8 @@ public class PlayerActionHandler : MonoBehaviour
         // Debug.Log("post: " + towerPlaceTarget.y);
     }
 
-    public void OnToggleFlashlight(InputAction.CallbackContext context)
+    void OnToggleFlashlight()
     {
-        if(!context.performed)
-        {
-            return;
-        }
         if (playerState.getState() != PlayerStateController.PlayerState.ViewMode) return;
         
         setFlashLight(!lightOn);
@@ -97,7 +94,6 @@ public class PlayerActionHandler : MonoBehaviour
 
     void setFlashLight(bool status)
     {
-
         lightOn = status;
         if (status)
         {
@@ -110,12 +106,8 @@ public class PlayerActionHandler : MonoBehaviour
     }
 
 
-    public void OnViewMode(InputAction.CallbackContext context)
+    void OnViewMode()
     {
-        if(!context.performed)
-        {
-            return;
-        }
         if (playerState.getState() != PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(true);
@@ -124,12 +116,8 @@ public class PlayerActionHandler : MonoBehaviour
         }
     }
 
-    public void OnBuildMode(InputAction.CallbackContext context)
+    void OnBuildMode()
     {
-        if(!context.performed)
-        {
-            return;
-        }
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(false);
@@ -146,12 +134,8 @@ public class PlayerActionHandler : MonoBehaviour
         }
     }
 
-    public void OnPlantMode(InputAction.CallbackContext context)
+    void OnPlantMode()
     {
-        if(!context.performed)
-        {
-            return;
-        }
         if (playerState.getState() == PlayerStateController.PlayerState.ViewMode)
         {
             setFlashLight(false);
@@ -191,12 +175,8 @@ public class PlayerActionHandler : MonoBehaviour
     
     
     
-    public void OnPlace(InputAction.CallbackContext context)
+    void OnPlace()
     {
-        if(!context.performed)
-        {
-            return;
-        }
         if (preview == null) return;
         if (!placementValid())
         {
