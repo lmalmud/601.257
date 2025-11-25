@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+    Author: Teddy Starynski
+    Date Created: 11/25/25
+    Last Edited: 11/25/25
+    A script to make the health bar shake when damage has been taken
+*/
+
 public class HealthBarShake : MonoBehaviour
 {
     private Vector3 basePosition;
