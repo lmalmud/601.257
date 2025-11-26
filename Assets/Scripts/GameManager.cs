@@ -211,6 +211,11 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public int getWavesLeft()
+    {
+        return waves.Count;
+    }
+
     public void RestartGame()
     {
         Time.timeScale = 1;
