@@ -11,7 +11,7 @@ using TMPro;
 
 */
 
-public class BalanceUI : MonoBehaviour
+public class WaveUIScript : MonoBehaviour
 {
     TMP_Text text;
 
@@ -22,13 +22,12 @@ public class BalanceUI : MonoBehaviour
 
     void Start()
     {
-        text.text = "$ " + GameManager.instance.getMoney();
+        text.text = "Waves Left\n " + GameManager.instance.getWavesLeft();
     }
 
 
     void Update()
     {
-        text.text = "$ " + GameManager.instance.getMoney();
+        text.text = "Waves Left\n " + GameManager.instance.getWavesLeft();
     }
-
 }

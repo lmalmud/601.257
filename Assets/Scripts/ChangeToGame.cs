@@ -21,4 +21,9 @@ public class ChangeToGame : MonoBehaviour
     {
         SceneManager.LoadScene("Controls");
     }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }
