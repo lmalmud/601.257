@@ -25,31 +25,31 @@ public class DayNightMusicSwitch : MonoBehaviour
     
     void Start()
     {
-        // Get AudioSource component
+        // get AudioSource component
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
         
-        // Set up background music
+        // set up background music
         audioSource.loop = true;
         audioSource.playOnAwake = false;
         
-        // Get day/night events from GameManager
+        // get day/night events from GameManager
         if (GameManager.instance != null)
         {
             GameManager.instance.onDayStart.AddListener(PlayDayMusic);
             GameManager.instance.onNightStart.AddListener(PlayNightMusic);
         }
         
-        // Start with day music
+        // start with day music
         PlayDayMusic();
     }
     
     void Update()
     {
-        // Update debug info in inspector
+        // update debug info in inspector
         isPlaying = audioSource.isPlaying;
         if (audioSource.clip != null)
         {
@@ -63,7 +63,7 @@ public class DayNightMusicSwitch : MonoBehaviour
     
     void OnDestroy()
     {
-        // Delete when done
+        // delete when done
         if (GameManager.instance != null)
         {
             GameManager.instance.onDayStart.RemoveListener(PlayDayMusic);
@@ -111,19 +111,19 @@ public class DayNightMusicSwitch : MonoBehaviour
     {
         float startVolume = audioSource.volume;
         
-        // Fade out current music
+        // fade out current music
         while (audioSource.volume > 0)
         {
             audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
             yield return null;
         }
         
-        // Switch to new clip
+        // switch to new clip
         audioSource.clip = newClip;
         audioSource.Play();
         Debug.Log("Now playing: " + newClip.name);
         
-        // Fade in new music
+        // fade in new music
         while (audioSource.volume < startVolume)
         {
             audioSource.volume += startVolume * Time.deltaTime / fadeDuration;

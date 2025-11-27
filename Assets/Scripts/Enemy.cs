@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     private EnemyFSM fsm;
     private Animator animator;
     
-    private Coroutine fireDoTCoroutine;
+    private Coroutine fireDoTCoroutine; // a function that will execute over multiple frames
 
     void Awake()
     {
@@ -63,12 +63,12 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(fireParticlePrefab, transform.position, Quaternion.identity, transform);
 
-                // Start damage over time for fire bullets
-                if (bd.hasDOT)
+                // start damage over time for fire bullets
+                if (bd.hasDOT) // a new property in the BulletDamage script
                 {
-                    if (fireDoTCoroutine != null)
+                    if (fireDoTCoroutine != null) 
                     {
-                        StopCoroutine(fireDoTCoroutine);
+                        StopCoroutine(fireDoTCoroutine); // stop the old one if one is already running
                     }
                     fireDoTCoroutine = StartCoroutine(FireDamageOverTime(bd.dotDamage, bd.dotDuration, bd.dotInterval));
                 }
@@ -86,22 +86,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // the coroutine for DoT
     private IEnumerator FireDamageOverTime(int dotDamage, float duration, float interval)
     {
         float elapsedTime = 0f;
         
+        // keep going until time runs out or enemy dies
         while (elapsedTime < duration && life.amount > 0)
         {
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(interval); // between damage ticks (a property of bullet)
             
+            // apply the damage and update UI
             life.amount -= dotDamage;
             animator.SetFloat("Health", life.amount);
             animator.SetTrigger("IsHit");
             
-            elapsedTime += interval;
+            elapsedTime += interval; // update how much time passed
         }
         
-        fireDoTCoroutine = null;
+        fireDoTCoroutine = null; // do not refer to the coroutine once it ended
     }
 
     void endPointAnim()
