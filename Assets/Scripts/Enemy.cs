@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     private EnemyFSM fsm;
     private Animator animator;
     
-
+    private Coroutine fireDoTCoroutine;
 
     void Awake()
     {
@@ -62,6 +62,16 @@ public class Enemy : MonoBehaviour
             if (bd != null && bd.type == "fire" && fireParticlePrefab != null)
             {
                 Instantiate(fireParticlePrefab, transform.position, Quaternion.identity, transform);
+
+                // Start damage over time for fire bullets
+                if (bd.hasDOT)
+                {
+                    if (fireDoTCoroutine != null)
+                    {
+                        StopCoroutine(fireDoTCoroutine);
+                    }
+                    fireDoTCoroutine = StartCoroutine(FireDamageOverTime(bd.dotDamage, bd.dotDuration, bd.dotInterval));
+                }
             }
 
             if (bd != null && bd.type == "water")
@@ -74,6 +84,24 @@ public class Enemy : MonoBehaviour
         {
             fsm.updateCheckpoint();
         }
+    }
+
+    private IEnumerator FireDamageOverTime(int dotDamage, float duration, float interval)
+    {
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < duration && life.amount > 0)
+        {
+            yield return new WaitForSeconds(interval);
+            
+            life.amount -= dotDamage;
+            animator.SetFloat("Health", life.amount);
+            animator.SetTrigger("IsHit");
+            
+            elapsedTime += interval;
+        }
+        
+        fireDoTCoroutine = null;
     }
 
     void endPointAnim()
