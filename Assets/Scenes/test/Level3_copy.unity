@@ -18589,6 +18589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900629687}
   - component: {fileID: 1900629686}
+  - component: {fileID: 1900629688}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -18708,6 +18709,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900629688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900629685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168f0077f19a240f389e1b448279a572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayMusic: {fileID: 8300000, guid: 29537864bee0dfd49a70c376f8664cf1, type: 3}
+  nightMusic: {fileID: 8300000, guid: 347359f76440991488260e96c801a834, type: 3}
+  fadeDuration: 2
+  currentTrack: None
+  isPlaying: 0
 --- !u!1001 &1908569968
 PrefabInstance:
   m_ObjectHideFlags: 0
