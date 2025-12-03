@@ -25,8 +25,6 @@ public class PlayerActionHandler : MonoBehaviour
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private GameObject plantPrefab;
     [SerializeField] private PlayerStateController playerState;
-    
-
 
 
 
@@ -204,6 +202,10 @@ public class PlayerActionHandler : MonoBehaviour
         PlaceableMaterialManager towerPlaceEffects = preview.GetComponent<PlaceableMaterialManager>();
         towerPlaceEffects.setMaterial(1);
         towerPlaceEffects.playPlaceParticle();
+
+        // Add camera shake when placing
+        StartCoroutine(CameraShake(0.1f, 0.05f));
+
         setOpacity(preview, 1);
 		preview.GetComponent<Collider>().isTrigger = false;
 		if(playerState.getState() == PlayerStateController.PlayerState.BuildMode)
@@ -219,6 +221,25 @@ public class PlayerActionHandler : MonoBehaviour
         //preview = Instantiate(towerPrefab, targetPlaceLocation, Quaternion.identity);
         //setOpacity(preview, .5f);
 
+    }
+
+    private IEnumerator CameraShake(float duration, float magnitude)
+    {
+        Vector3 originalPos = mainCam.transform.localPosition;
+        float elapsed = 0f;
+        
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            
+            mainCam.transform.localPosition = originalPos + new Vector3(x, y, 0);
+            
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        mainCam.transform.localPosition = originalPos;
     }
 
     // Update is called once per frame

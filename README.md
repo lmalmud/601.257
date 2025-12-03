@@ -205,17 +205,32 @@ You'll see a small spotlight on the top of the tower that rotates as the light t
 * Make rooster quieter
 
 ## Project Part 4: Finishing Touches
-* Clean up so it runs faster (i.e. streamline Update functions)
-* Remove uneeded assets
+* ~~Clean up so it runs faster (i.e. streamline Update functions)~~
+* ~~Remove uneeded assets~~
+* Footstep sound when walking - decided to move to the next checkpoint
+* ~~Switch between music for day/night~~
+* You plant a plot of crops each time instead of a single one - we decided that we like it with just one flower
+* ~~Start screen~~
+* ~~Certain towers deal DOT: fire tower will deal damage over time~~
+
+All new UI assets were hand drawn by Teddy! (Thank you, Teddy)
+
+![Title screen](Assets/readme_screenshots/TitleScreen.png)
+
+### Additions
+* Camera shake upon tower placement
+* Control screen
+
+## Final Project Submission
+* Continue optimizing for web deployment (change particle settings, remove excess files)
 * Footstep sound when walking
-* Switch between music for day/night
+* Make mouse movement smoother (i.e. update GameManager)
+* Fix UI proportions
 * Allow for the ability to select different tower types in game
-* You plant a plot of crops each time instead of a single one
-* Start screen
-* Certain towers deal DOT: fire tower will deal damage over time
 
 ## Instructions for Testing the Project
-* Play the ```Level 3``` scene
+* Play the ```Title``` scene (which will go automatically)
+* You may need to resize the window to be able to see all of the UI features (will fix for next checkpoint)
 * Multiple tower variants exist, but you can only place one type because of UI reasons
 * WASD to move around
 * Space to jump
@@ -229,4 +244,3 @@ You'll see a small spotlight on the top of the tower that rotates as the light t
 * Press `r` to freeze rotation
 * Press `esc` to rematerialize the cursor
 * Right click the mouse to toggle the flashlight in view mode
-* Press `o` to toggle tower range visibility
