@@ -252,11 +252,21 @@ All new UI assets were hand drawn by Teddy! (Thank you, Teddy)
 Play our game on[itch.io](https://lmalmud.itch.io/farm-tower-td-defense)!
 
 ## Future Work
+* Add more types of towers
+* Add more map layouts
+* Potential multiplayer mode: can send enemies to the other player instead of being automatically sent
 
 ## Member Contributions
 * Brady
 * Teddy
-    * 
+    * Enemies: found assets, made particle effects, scripted behavior, and created variants of the enemies. 
+    * Level Design: designed the level decorations and the functional aspects of the level (i.e. the path)
+    * The Path: created the path as a Nav Mesh and made a system to allow the enemies to track to checkpoints along the path, making it possible to make arbitrary path shapes
+    * Wave Spawner: created a wave spawner game object that allows us to change how many enemies are spawned, which enemies are spawned, and what rate they are spawned in at. It randomly picks from the allowed enemy types.
+    * Added player an enemy heath and the player's money balance.
+    * Added post processing effects, including ones that dynamically
+    * Made the win, lose, and pause screens.
+    * Drew all the UI elements, the title screen art, and the splash art on the itch page.
 * Lucy
     * Built three tower variants (normal, water, fire) and bullet variants (fire path)
     * Incorporated automatic aiming of towers to enemy that is closest to goal
