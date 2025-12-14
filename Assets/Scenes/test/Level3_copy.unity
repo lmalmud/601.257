@@ -2229,7 +2229,12 @@ PrefabInstance:
         type: 3}
       propertyPath: selectTowerPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1956725359}
+    - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+        type: 3}
+      propertyPath: playerActionHandler
+      value: 
+      objectReference: {fileID: 1923831080}
     - target: {fileID: 4505430618104820299, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20860,7 +20865,19 @@ MonoBehaviour:
     m_ActionId: 353b07eb-397f-48b4-82b4-cbfaecd93828
     m_ActionName: 'Player/ToggleSelectTower[/Keyboard/q]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 668326710}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_ActionId: f8094f88-22b9-4c61-8212-4da835afc0d7
     m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
