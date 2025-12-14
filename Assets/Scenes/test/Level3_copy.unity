@@ -1942,6 +1942,11 @@ PrefabInstance:
       objectReference: {fileID: 1666207837}
     - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
         type: 3}
+      propertyPath: pausePanel
+      value: 
+      objectReference: {fileID: 2009807229}
+    - target: {fileID: 1827153346674466956, guid: 407073e8b485d644bb786a78671daf0a,
+        type: 3}
       propertyPath: audioController
       value: 
       objectReference: {fileID: 146620760}
@@ -4194,6 +4199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 411045987}
+  pauseEnableDelay: 0.25
 --- !u!114 &411045990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17362,6 +17368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1666207833}
+  pauseEnableDelay: 0.25
 --- !u!1 &1670005104
 GameObject:
   m_ObjectHideFlags: 0
@@ -20389,6 +20396,7 @@ GameObject:
   - component: {fileID: 2009807226}
   - component: {fileID: 2009807228}
   - component: {fileID: 2009807227}
+  - component: {fileID: 2009807229}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -20454,6 +20462,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009807225}
   m_CullTransparentMesh: 1
+--- !u!114 &2009807229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009807225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea1ea39af24a849b591e5a0a18374e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 958783651}
+  pauseEnableDelay: 0.25
 --- !u!1001 &2019665083
 PrefabInstance:
   m_ObjectHideFlags: 0
