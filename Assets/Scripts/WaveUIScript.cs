@@ -6,8 +6,9 @@ using TMPro;
 /*
     Author: Teddy Starynski
     Date Created: 11/13/25
-    Last Edited: 11/13/25
+    Last Edited: 12/14/25
     Controls the UI which shows the player how much money they have.
+    Updated by Lucy to chage from updating every frame to only when there is a modification.
 
 */
 
@@ -22,12 +23,17 @@ public class WaveUIScript : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.onNightStart.AddListener(UpdateWaveUI);
+        UpdateWaveUI(); // set initial value
+    }
+
+    void UpdateWaveUI()
+    {
         text.text = "Waves Left\n " + GameManager.instance.getWavesLeft();
     }
 
-
-    void Update()
+    void OnDestroy()
     {
-        text.text = "Waves Left\n " + GameManager.instance.getWavesLeft();
+        GameManager.instance.onNightStart.RemoveListener(UpdateWaveUI);
     }
 }

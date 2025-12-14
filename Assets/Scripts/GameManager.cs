@@ -69,8 +69,6 @@ public class GameManager : MonoBehaviour
         
         sunRotateFraction = 180 / (dayLength * sunRotateTicksPerSecond) ;
 
-
-
         //gets a reference to teh endpoint detector and listens out for the onReachEnd event
         var endPointDetector = GameObject.Find("EndPoint").GetComponent<EndPointDetection>();
         endPointDetector.onReachEnd.AddListener(loseLife);
@@ -85,6 +83,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // LM: reset everything for when the game starts
+        Time.timeScale = 1; // reset from any prior pause
+        Cursor.lockState = CursorLockMode.None; // unlock for UI interaction
+        Cursor.visible = true;  // show cursor so buttons can be clicked
+
         losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
         winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
         pausePanel = GameObject.Find("PauseMenu").GetComponent<activatePanel>();
@@ -92,8 +95,10 @@ public class GameManager : MonoBehaviour
         losePanel.deactivateThisPanel();
         winPanel.deactivateThisPanel();
         pausePanel.deactivateThisPanel();
-    }
 
+        losePanelActive = false; // LM: added for cleanup since it is there on Awake
+    }
+    
     void Update()
     {
         if (life <= 0)
@@ -108,13 +113,30 @@ public class GameManager : MonoBehaviour
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        
+        // LM: toggle pause on Escape
+        if (pausePanel != null && Input.GetKeyDown(KeyCode.Escape))
         {
-            pausePanel.activateThisPanel();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (Time.timeScale == 0)
+            {
+                // Resume game
+                pausePanel.deactivateThisPanel();
+                Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Locked; // optional for FPS controls
+                Cursor.visible = false;
+            }
+            else
+            {
+                // Pause game
+                pausePanel.activateThisPanel();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
     }
+    
+
+
 
     public void addWave(WaveSpawner wave)
     {

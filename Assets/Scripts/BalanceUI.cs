@@ -6,9 +6,9 @@ using TMPro;
 /*
     Author: Teddy Starynski
     Date Created: 11/13/25
-    Last Edited: 11/13/25
+    Last Edited: 12/14/25
     Controls the UI which shows the player how much money they have.
-
+    Edited by Lucy to minimize updates to screen
 */
 
 public class BalanceUI : MonoBehaviour
@@ -22,13 +22,17 @@ public class BalanceUI : MonoBehaviour
 
     void Start()
     {
-        text.text = "$ " + GameManager.instance.getMoney();
+        GameManager.instance.onMoneyChange.AddListener(UpdateBalance);
+        UpdateBalance(); // set initial value
     }
 
-
-    void Update()
+    void UpdateBalance()
     {
         text.text = "$ " + GameManager.instance.getMoney();
     }
 
+    void OnDestroy()
+    {
+        GameManager.instance.onMoneyChange.RemoveListener(UpdateBalance);
+    }
 }
