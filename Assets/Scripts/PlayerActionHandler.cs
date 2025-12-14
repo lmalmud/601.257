@@ -118,7 +118,7 @@ public class PlayerActionHandler : MonoBehaviour
 
     public void OnBuildMode(InputAction.CallbackContext context)
     {
-        if(!context.performed)
+        if(!context.performed || Time.timeScale == 0)
         {
             return;
         }
@@ -140,7 +140,8 @@ public class PlayerActionHandler : MonoBehaviour
 
     public void OnPlantMode(InputAction.CallbackContext context)
     {
-        if(!context.performed)
+         // LM: added second condition about timeScale to prevent weirdness with pause menu
+        if(!context.performed || Time.timeScale == 0)
         {
             return;
         }
@@ -187,6 +188,12 @@ public class PlayerActionHandler : MonoBehaviour
     public void OnPlace(InputAction.CallbackContext context)
     { 
         if(!context.performed)
+        {
+            return;
+        }
+
+        // LM: Prevent placement if the game is paused
+        if (Time.timeScale == 0)
         {
             return;
         }
