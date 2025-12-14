@@ -23,6 +23,9 @@ public class PlayerActionHandler : MonoBehaviour
 
     [Header("Tower/plant placement")]
     [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private GameObject FireTowerPrefab;
+    [SerializeField] private GameObject waterTowerPrefab;
+    [SerializeField] private GameObject normalTowerPrefab;
     [SerializeField] private GameObject plantPrefab;
     [SerializeField] private PlayerStateController playerState;
 
@@ -75,6 +78,29 @@ public class PlayerActionHandler : MonoBehaviour
         // Debug.Log("pre: " + towerPlaceTarget);
         // towerPlaceTarget.y += towerYoffset;
         // Debug.Log("post: " + towerPlaceTarget.y);
+    }
+
+    public void normalTowerSelect()
+    {
+        towerPrefab = normalTowerPrefab;
+        closePanelOnSelection();
+
+    }
+    public void fireTowerSelect()
+    {
+        towerPrefab = FireTowerPrefab;
+        closePanelOnSelection();
+
+    }
+    public void waterTowerSelect()
+    {
+        towerPrefab = waterTowerPrefab;
+        closePanelOnSelection();
+    }
+
+    private void closePanelOnSelection()
+    {
+        gm.deactivateSelectTowerPanel();
     }
 
     public void OnToggleFlashlight(InputAction.CallbackContext context)
@@ -181,6 +207,23 @@ public class PlayerActionHandler : MonoBehaviour
         if(!gm.spendMoney(cost)) return false;
         //TODO: check for valid tower placement
         return true;
+    }
+
+
+    public void refreshPreview()
+    {
+        if (preview != null)
+        {
+            Destroy(preview);
+        }
+        if (playerState.getState() == PlayerStateController.PlayerState.BuildMode)
+        {
+            setPreview(towerPrefab);   
+        }
+        else if (playerState.getState() == PlayerStateController.PlayerState.PlantMode)
+        {
+            setPreview(plantPrefab);   
+        }
     }
     
     

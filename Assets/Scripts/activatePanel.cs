@@ -31,7 +31,11 @@ public class activatePanel : MonoBehaviour
     
     void Start()
     {
-        panel.SetActive(false); // so that they arent visible before they should be
+        if(panel != null && panel.activeSelf)
+        {
+            panel.SetActive(false); // so that they arent visible before they should be
+        }
+        
 
         // LM: commented out
         //Cursor.visible = false;
@@ -51,6 +55,7 @@ public class activatePanel : MonoBehaviour
     {
         if (panel != null)
         {
+            Debug.Log("Activating panel: " + panel.name);
             panel.SetActive(true);
             Time.timeScale = 0;
             isActive = true;

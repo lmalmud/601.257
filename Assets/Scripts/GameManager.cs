@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     private bool losePanelActive;
     [SerializeField] private activatePanel winPanel;
     [SerializeField] private activatePanel pausePanel;
+    [SerializeField] private activatePanel selectTowerPanel;
+    [SerializeField] private PlayerActionHandler playerActionHandler;
 
     void Awake()
     {
@@ -88,13 +90,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // unlock for UI interaction
         Cursor.visible = true;  // show cursor so buttons can be clicked
 
-        losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
-        winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
-        pausePanel = GameObject.Find("PauseMenu").GetComponent<activatePanel>();
+        // losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
+        // winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
+        // pausePanel = GameObject.Find("PauseMenu").GetComponent<activatePanel>();
 
         losePanel.deactivateThisPanel();
         winPanel.deactivateThisPanel();
         pausePanel.deactivateThisPanel();
+        selectTowerPanel.deactivateThisPanel();
 
         losePanelActive = false; // LM: added for cleanup since it is there on Awake
     }
@@ -114,25 +117,7 @@ public class GameManager : MonoBehaviour
             
         }
         
-        // LM: toggle pause on Escape
-        if (pausePanel != null && Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Time.timeScale == 0)
-            {
-                // Resume game
-                pausePanel.deactivateThisPanel();
-                Time.timeScale = 1;
-                Cursor.lockState = CursorLockMode.Locked; // optional for FPS controls
-                Cursor.visible = false;
-            }
-            else
-            {
-                // Pause game
-                pausePanel.activateThisPanel();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
+        
     }
     
 
@@ -262,5 +247,62 @@ public class GameManager : MonoBehaviour
     public void MenuScreen()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(pausePanel == null || !context.performed)
+        {
+            return;
+        }
+
+        
+        if (pausePanel.gameObject.activeSelf)
+        {
+            Debug.Log("Resuming Game");
+            // Resume game
+            pausePanel.deactivateThisPanel();
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked; // optional for FPS controls
+            Cursor.visible = false;
+        }
+        else
+        {
+            Debug.Log("Pausing Game");
+            // Pause game
+            pausePanel.activateThisPanel();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
+    }
+
+    public void OnToggleSelectTower(InputAction.CallbackContext context)
+    {
+
+        if(!context.performed || selectTowerPanel == null)
+        {
+            return;
+        }
+        if(selectTowerPanel.gameObject.activeSelf)
+        {
+            deactivateSelectTowerPanel();
+        }
+        else
+        {
+            selectTowerPanel.activateThisPanel();
+        }
+    }
+
+    public void deactivateSelectTowerPanel()
+    {
+        if (selectTowerPanel != null)
+        {
+            selectTowerPanel.deactivateThisPanel();
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked; 
+            Cursor.visible = false;
+            playerActionHandler.refreshPreview();
+        }
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
     Date Created: 10/1/25
     Date Last Updated: 10/1/25
     Summary: Manages the ties between the HUD and the actual values tracked in game
+    depreciated
 */
 
 public class OverlayGuiController : MonoBehaviour

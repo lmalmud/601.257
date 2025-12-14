@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Brady Bock
+    Summary: Handles the animation event for when an enemy dies
+*/
+
 public class DeathAnim : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

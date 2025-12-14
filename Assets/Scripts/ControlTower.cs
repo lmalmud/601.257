@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Author: Brady Bock
+    Depreciated due to a new tower placement system
+*/
+
 public class ControlTower : MonoBehaviour
 {
     
