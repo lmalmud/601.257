@@ -230,23 +230,27 @@ All new UI assets were hand drawn by Teddy! (Thank you, Teddy)
 
 ## Instructions for Testing the Project
 * Play the ```Title``` scene (which will go automatically)
-* You may need to resize the window to be able to see all of the UI features (will fix for next checkpoint)
-* Multiple tower variants exist, but you can only place one type because of UI reasons
 * WASD to move around
 * Space to jump
+* Press `q` to place a tower
 * 1, 2, 3 numbers to toggle between view mode, place tower, and place plant, respectively
 * Money and lives are displayed in the top left of the screen
 * You need to place plants in order to make more money
     * You cannot place a tower if you do not have enough money
     * You get a $500 stipend every day
 * There are two waves of enemies i.e. two nights (one wave per night)
-* Press `m` to get free money (we love a good tax loophole)
-* Press `r` to freeze rotation
-* Press `esc` to rematerialize the cursor
+* Press `esc` to pause
 * Right click the mouse to toggle the flashlight in view mode
 
 ## Demo
-
+Check out our title and controls screen...
+<video src="Assets/readme_screenshots/DemoIntro.mov" controls muted playsinline>
+  <a href="Assets/readme_screenshots/DemoIntro.mov">Download / play the demo</a>
+</video>
+..and see our enemies!
+<video src="Assets/readme_screenshots/DemoAttack.mov" controls muted playsinline>
+  <a href="Assets/readme_screenshots/DemoAttack.mov">Download / play the demo</a>
+</video>
 
 ## Download
 Play our game on[itch.io](https://lmalmud.itch.io/farm-tower-td-defense)!
