@@ -258,6 +258,12 @@ Play our game on[itch.io](https://lmalmud.itch.io/farm-tower-td-defense)!
 
 ## Member Contributions
 * Brady
+    * Minimap - made base implementation as a second camera
+    * Input management - event based input system where an input manger calls functions in everything that receives input (game manager, player, etc)
+    * Player movement and player actions - different player modes (build, plant, view), placement of towers and plants, etc
+    * Tower placement and preview - transparent preview of tower when in build mode
+    * Day/night cycle
+    * Select towers menu - allows switching of tower types when building
 * Teddy
     * Enemies: found assets, made particle effects, scripted behavior, and created variants of the enemies. 
     * Level Design: designed the level decorations and the functional aspects of the level (i.e. the path)

@@ -248,7 +248,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.4
+  m_fontSize: 44.05
   m_fontSizeBase: 53.52
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -361,17 +361,19 @@ MonoBehaviour:
 
     Space to jump
 
-    Move mouse to look around
+    q to place tower
 
-    1
-    for view mode
+    Move mouse
+    to look around
+
+    1 for view mode
 
     2 for build mode
 
     3 for plant mode
 
-    left click to
-    place tower or plant'
+    left
+    click to place tower or plant'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7380d83ac914ad94abbc1f38724ae15b, type: 2}
   m_sharedMaterial: {fileID: 3427049670927189456, guid: 7380d83ac914ad94abbc1f38724ae15b,

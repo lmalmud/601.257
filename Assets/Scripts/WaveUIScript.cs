@@ -23,7 +23,7 @@ public class WaveUIScript : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.onNightStart.AddListener(UpdateWaveUI);
+        GameManager.instance.onDayStart.AddListener(UpdateWaveUI);
         UpdateWaveUI(); // set initial value
     }
 
@@ -34,6 +34,6 @@ public class WaveUIScript : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.instance.onNightStart.RemoveListener(UpdateWaveUI);
+        GameManager.instance.onDayStart.RemoveListener(UpdateWaveUI);
     }
 }
