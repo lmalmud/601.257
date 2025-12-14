@@ -244,3 +244,22 @@ All new UI assets were hand drawn by Teddy! (Thank you, Teddy)
 * Press `r` to freeze rotation
 * Press `esc` to rematerialize the cursor
 * Right click the mouse to toggle the flashlight in view mode
+
+## Demo
+
+
+## Download
+Play our game on[itch.io](https://lmalmud.itch.io/farm-tower-td-defense)!
+
+## Future Work
+
+## Member Contributions
+* Brady
+* Teddy
+    * 
+* Lucy
+    * Built three tower variants (normal, water, fire) and bullet variants (fire path)
+    * Incorporated automatic aiming of towers to enemy that is closest to goal
+    * Added special effects on damage dealt (enemies set on fire, damage over time)
+    * Added spotlight on top of towers
+    * Juice: animated flower movement, camera shake upon object placement, day/night music switch
