@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     //variables for keeping stack of the player's current state
     private float rotationY = 0F;
     private float rotationX = 0F;
+    // store raw look input from the input system and apply per-frame
+    private Vector2 lookInput = Vector2.zero;
     private Vector3 movementDir;
     private Vector3 scaledMovement;
     private Rigidbody playerRb;
@@ -73,21 +75,10 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnLook(InputAction.CallbackContext context)
     {
-        if(!context.performed)
-        {
-            return;
-        }
-        if (rotationFrozen) return;
-        
-        
-        rotationX = transform.localEulerAngles.y + context.ReadValue<Vector2>().x * sensitivityX;
-        rotationY += context.ReadValue<Vector2>().y * sensitivityY;
-        rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-        //side-to-side rotations moves entire body
-        transform.localEulerAngles = new Vector3(0, rotationX, 0);
-        //up and down rotation just moves "eyes" -> camera
-        playerEye.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
-
+        // Store the latest look delta. We'll apply smoothing and time-scaling in Update()
+        // Using context.ReadValue<Vector2>() here avoids depending on context.performed
+        // which can be called irregularly on some platforms (WebGL).
+        lookInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -125,6 +116,18 @@ public class PlayerMovement : MonoBehaviour
             rotationFrozen = false; //there is definately a more optimal way to do this with events
         }
 
+        // Apply look input every frame with time-scaling to avoid jitter on variable frame rates (helps WebGL)
+        if (!rotationFrozen && playerEye != null)
+        {
+            // scale converts raw delta into a usable degrees/sec; tweak as needed
+            const float scale = 100f;
+            rotationX += lookInput.x * sensitivityX * Time.deltaTime * scale;
+            rotationY += lookInput.y * sensitivityY * Time.deltaTime * scale;
+            rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+
+            transform.localRotation = Quaternion.Euler(0f, rotationX, 0f);
+            playerEye.transform.localRotation = Quaternion.Euler(-rotationY, 0f, 0f);
+        }
     }
 
     private void FixedUpdate()
