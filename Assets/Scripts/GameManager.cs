@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private activatePanel losePanel;
     private bool losePanelActive;
     [SerializeField] private activatePanel winPanel;
+    [SerializeField] private activatePanel pausePanel;
 
     void Awake()
     {
@@ -86,9 +87,11 @@ public class GameManager : MonoBehaviour
     {
         losePanel = GameObject.Find("LoseScreen").GetComponent<activatePanel>();
         winPanel = GameObject.Find("WinScreen").GetComponent<activatePanel>();
+        pausePanel = GameObject.Find("PauseMenu").GetComponent<activatePanel>();
 
         losePanel.deactivateThisPanel();
         winPanel.deactivateThisPanel();
+        pausePanel.deactivateThisPanel();
     }
 
     void Update()
@@ -104,6 +107,12 @@ public class GameManager : MonoBehaviour
                 losePanelActive = true;
             }
             
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePanel.activateThisPanel();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -220,6 +229,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ContinueGame()
+    {
+        pausePanel.deactivateThisPanel();
+        Time.timeScale = 1;
     }
 
     public void MenuScreen()

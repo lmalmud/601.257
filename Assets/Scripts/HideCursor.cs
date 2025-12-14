@@ -23,10 +23,10 @@ public class HideCursor : MonoBehaviour
     void Update()
     {
         // Optional: press Escape to unlock and show the cursor again
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     Cursor.lockState = CursorLockMode.None;
+        //     Cursor.visible = true;
+        // }
     }
 }

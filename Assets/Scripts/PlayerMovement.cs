@@ -116,9 +116,13 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = CheckIsGrounded();
 
-        if(GameObject.Find("LoseScreen") != null || GameObject.Find("WinScreen") != null)
+        if(GameObject.Find("LoseScreen") != null || GameObject.Find("WinScreen") != null || GameObject.Find("PauseMenu") != null)
         {
             rotationFrozen = true;
+        }
+        if(GameObject.Find("PauseMenu") == null)
+        {
+            rotationFrozen = false; //there is definately a more optimal way to do this with events
         }
 
     }
