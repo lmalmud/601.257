@@ -211,12 +211,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnGiveMoney(InputAction.CallbackContext context)
-    {
+    {   /*
         if(!context.performed)
         {
             return;
         }
         giveStipend();
+        */
     }
 
     public bool spendMoney(int cost)
