@@ -224,6 +224,7 @@ public class PlayerActionHandler : MonoBehaviour
         {
             setPreview(plantPrefab);   
         }
+        preview.GetComponent<TowerAttack>().setIsPlaced(false);
     }
     
     

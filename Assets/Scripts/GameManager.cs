@@ -243,6 +243,8 @@ public class GameManager : MonoBehaviour
     {
         pausePanel.deactivateThisPanel();
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked; // optional for FPS controls
+        Cursor.visible = false;
     }
 
     public void MenuScreen()

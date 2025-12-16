@@ -31,10 +31,10 @@ public class activatePanel : MonoBehaviour
     
     void Start()
     {
-        if(panel != null && panel.activeSelf)
-        {
-            panel.SetActive(false); // so that they arent visible before they should be
-        }
+        // if(panel != null && panel.activeSelf)
+        // {
+        //     panel.SetActive(false); // so that they arent visible before they should be
+        // }
         
 
         // LM: commented out
