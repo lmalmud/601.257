@@ -97,7 +97,75 @@ One of our favorite parts of Minecraft was the farming- providing a peaceful, ro
 - The player has an attack 
     - Allows for strategies where you invest more in eco at the beginning and use your skill attacking the enemies to avoid buying towers until necessary 
 
-## Development Plan 
+## Development 
+
+## Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
+
+We first intend to implement the tower defense aspect of our game, layering on the farming components as time progresses. Before we have implemented the farming simulation aspect of the game (which is the mechanism that will enable players to get more and improved resources), we will include automatically allocated resources. This will allow for us to develop our game as though it were a regular tower defense, and later layer in the simulation aspect. 
+
+Our goals for the first checkpoint will include: 
+
+- ~~Implement basic map functionality such as a pre-generated map that will serve as the basis for the physical structure of gameplay using primitives~~
+    - ~~Get an “enemy” to follow a preset path~~
+- ~~A player that can move around the world~~ 
+- ~~The ability to place primitive towers (not necessarily functional)~~
+    - ~~Ex able to place a cube in the world.~~
+- ~~At least one enemy~~
+- ~~A win/lose condition~~
+
+## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
+- ~~Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]~~
+- Implement better target selection for towers (i.e. does not hit the closest enemy but rather the one that is closest to the the goal) [LM]
+    - Moved to next checkpoint
+- ~~A second level~~
+    - We did not add a second level, per se, but the day and night cycle
+    - ~~Pathfinding system improvements so that paths may loop around on themselves [TS]~~
+- ~~Apply new concepts from chapter 4 to the environment (ProBuilder?) to create a less basic terrain~~
+- More complex models than just a capsule
+    - ~~Enhanced tower prefab (& one variant, if time)~~
+    - ~~Enhanced enemy prefab (& one variant, if time)~~
+- ~~Text on the win/lose screen~~
+    - We decided this would be for a different checkpoint
+- ~~Add day/night loop with lighting~~
+  - ~~Add multiple rounds to each level~~
+
+## Project Part 3: Visual Effects (Ch 11, 12, 13)
+* ~~Incorporate decorations and better base assets from the separate scenes~~
+* ~~Towers aim to enemy that is closest to goal~~
+* ~~Add water tower variant~~
+    * ~~Will slow down enemies and have particles~~
+* ~~Add fire bullets that set enemies on fire~~
+* ~~Effect on placing tower~~
+* ~~Post processing effects (passive and when damage taken)~~
+
+
+## Project Checkpoint 3-4: Sound, UI, and Animation (Chapters 14, 15, 17)
+* ~~Text on win/lose screen improved~~
+* ~~Added UI element for day/night~~
+* ~~Added tower range as a light~~
+* ~~Add ambient music~~
+* ~~Animated the flowers so they sway in the wind~~
+* ~~Added a physical cylinder that rotates where the light points on each tower~~
+* ~~Added animations to the enemies~~
+
+## Project Part 4: Finishing Touches
+* ~~Clean up so it runs faster (i.e. streamline Update functions)~~
+* ~~Remove uneeded assets~~
+* Footstep sound when walking - decided to move to the next checkpoint
+* ~~Switch between music for day/night~~
+* You plant a plot of crops each time instead of a single one - we decided that we like it with just one flower
+* ~~Start screen~~
+* ~~Certain towers deal DOT: fire tower will deal damage over time~~
+
+
+## Final Project Submission
+* ~~Continue optimizing for web deployment (change particle settings, remove excess files)~~
+* Footstep sound when walking
+* ~~Make mouse movement smoother (i.e. update GameManager)~~
+* ~~Fix UI proportions~~
+* ~~Allow for the ability to select different tower types in game~~
+
+## Development 
 
 ## Project Checkpoint 1-2: Basic Mechanics and Scripting (Ch 5-9) 
 
