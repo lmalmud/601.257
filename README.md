@@ -243,14 +243,9 @@ All new UI assets were hand drawn by Teddy! (Thank you, Teddy)
 * Right click the mouse to toggle the flashlight in view mode
 
 ## Demo
-Check out our [title and controls screen](https://github.com/lmalmud/601.257/blob/edc744d2c774e77c6a1256cfe1b31569b2451053/Assets/readme_screenshots/DemoIntro.mov)...
-<video src="Assets/readme_screenshots/DemoIntro.mov" controls muted playsinline>
-  <a href="Assets/readme_screenshots/DemoIntro.mov">Download / play the demo</a>
-</video>
-..and [see our enemies](https://github.com/lmalmud/601.257/blob/edc744d2c774e77c6a1256cfe1b31569b2451053/Assets/readme_screenshots/DemoAttack.mov)!
-<video src="Assets/readme_screenshots/DemoAttack.mov" controls muted playsinline>
-  <a href="Assets/readme_screenshots/DemoAttack.mov">Download / play the demo</a>
-</video>
+Check out our [full playthrough demo!](https://github.com/lmalmud/601.257/blob/main/fttddvideo.mp4)
+<video src="fttddvideo.mp4" controls muted playsinline>
+  <a href="fttddvideo.mp4">Download / play the demo</a>
 
 ## Download
 Play our game on [itch.io](https://lmalmud.itch.io/farm-tower-td-defense)!
