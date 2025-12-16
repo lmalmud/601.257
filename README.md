@@ -179,8 +179,6 @@ Our goals for the first checkpoint will include:
 
 ## Project Part 2: 3D Scenes and Models (Ch 3+4, 10)
 - Implement better aiming for the tower (instead of just aiming at the current position, take the enemy and bullet velocity into account) [LM]
-- Implement better target selection for towers (i.e. does not hit the closest enemy but rather the one that is closest to the the goal) [LM]
-    - Moved to next checkpoint
 - A second level
     - We did not add a second level, per se, but the day and night cycle
     - Pathfinding system improvements so that paths may loop around on themselves [TS]
